@@ -4,7 +4,7 @@ import './CardGroup.module.scss';
 import Image from 'next/image';
 
 const meta: Meta<typeof CardGroup> = {
-  title: 'Editorial/Card Group Story',
+  title: 'Editorial/Card Group',
   component: CardGroup,
   argTypes: {
     sectionTitle: {

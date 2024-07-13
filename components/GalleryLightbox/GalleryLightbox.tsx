@@ -1,4 +1,5 @@
 import React from 'react';
+import { Modal, Button } from 'react-bootstrap';
 
 interface GalleryLightboxProps {
   sectionTitle?: string;
@@ -38,21 +39,17 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
             <a href={`#${item.id}`} role="button" data-bs-toggle="modal" data-bs-target={`#${item.id}`}>
               {item.mediaThumb}
             </a>
-            <div id={item.id} className="modal fade" tabIndex={-1} aria-labelledby={item.id} aria-hidden="true">
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title">{item.mediaDescription}</h5>
-                  </div>
-                  <div className="modal-body gallery-body">{item.media}</div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
-                      Close
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Modal id={item.id} show={false} onHide={() => { }}>
+              <Modal.Header closeButton>
+                <Modal.Title>{item.mediaDescription}</Modal.Title>
+              </Modal.Header>
+              <Modal.Body className="gallery-body">{item.media}</Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={() => { }}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </div>
         ))}
       </div>

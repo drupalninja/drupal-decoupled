@@ -1,14 +1,14 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import FormComponent from './Form';
+import type { Meta, StoryObj } from '@storybook/react';
+import Form from './Form';
 import './Form.module.scss';
 
-export default {
+const meta: Meta<typeof Form> = {
   title: 'Editorial/Form',
-  component: FormComponent,
-} as ComponentMeta<typeof FormComponent>;
+  component: Form,
+};
 
-const Template: ComponentStory<typeof FormComponent> = (args: any) => <FormComponent {...args} />;
+export default meta;
+type Story = StoryObj<typeof Form>;
 
-export const Form = Template.bind({});
-Form.args = {};
+export const Default: Story = {
+};

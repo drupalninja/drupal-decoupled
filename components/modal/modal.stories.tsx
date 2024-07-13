@@ -1,47 +1,51 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import Modal from './Modal';
 
-export default {
+const meta: Meta<typeof Modal> = {
   title: 'General/Modal',
   component: Modal,
   argTypes: {
-    id: {
-      description: 'Define the modal id.',
-      control: 'text'
+    buttonText: {
+      description: 'The text for the button that launches the modal',
+      control: 'text',
+    },
+    modalName: {
+      description: 'The name of the modal',
+      control: 'text',
     },
     title: {
-      description: 'Define the modal title.',
-      control: 'text'
+      description: 'The title of the modal',
+      control: 'text',
     },
     body: {
-      description: 'Define the modal body text.',
-      control: 'text'
+      description: 'The body text of the modal',
+      control: 'text',
     },
-    buttonText1: {
-      description: 'Define the modal close button text.',
-      control: 'text'
+    closeButtonName: {
+      description: 'The name of the close button',
+      control: 'text',
     },
-    buttonText2: {
-      description: 'Define the modal save button text.',
-      control: 'text'
+    saveButton: {
+      description: 'The save button object',
+      control: 'object',
     },
-    modifier: {
-      description: 'Define the modal modifier class for button.',
-      control: 'text'
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Modal>;
+
+export const Default: Story = {
+  args: {
+    buttonText: 'Launch demo modal',
+    modalName: 'example',
+    title: 'Modal Title',
+    body: 'Modal body text goes here.',
+    closeButtonName: 'Close',
+    saveButton: {
+      name: 'Save Changes',
+      redirects: 'http://drupal.org/'
     }
   }
-} as ComponentMeta<typeof Modal>;
-
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
-
-export const ModalComponent = Template.bind({});
-ModalComponent.args = {
-  id: 'exampleModal',
-  title: 'Modal title',
-  body: '<p>Modal body text goes here.</p>',
-  buttonText1: 'Close',
-  buttonText2: 'Save Changes',
-  modifier: 'btn-primary'
 };

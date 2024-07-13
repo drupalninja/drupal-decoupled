@@ -1,6 +1,10 @@
 // Import site utilities.
 @import '../../styles/bootstrap-init';
 
-iframe {
-  width: 100%;
+// Global styles.
+:global {
+
+  iframe {
+    width: 100%;
+  }
 }
