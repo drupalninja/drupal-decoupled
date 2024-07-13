@@ -1,4 +1,5 @@
 import React from 'react';
+import { Carousel } from 'react-bootstrap';
 import './Carousel.module.scss';
 
 interface CarouselItemProps {
@@ -13,38 +14,20 @@ interface CarouselProps {
   list: CarouselItemProps[];
 }
 
-const CarouselItem: React.FC<CarouselItemProps> = ({ active, image, title, caption }) => {
+const CarouselComponent: React.FC<CarouselProps> = ({ id, list }) => {
   return (
-    <div className={`carousel-item ${active ? 'active' : ''}`}>
-      {image && <div dangerouslySetInnerHTML={{ __html: image }} />}
-      <div className="carousel-caption d-none d-md-block">
-        {title && (
-          <h3>
-            {title}
-          </h3>
-        )}
-        <p>{caption}</p>
-      </div>
-    </div>
+    <Carousel id={`carousel-${id}`} className="carousel-single">
+      {list.map((item, index) => (
+        <Carousel.Item key={index} className={`carousel-item ${item.active ? 'active' : ''}`}>
+          {item.image && <div dangerouslySetInnerHTML={{ __html: item.image }} />}
+          <Carousel.Caption className="d-none d-md-block">
+            {item.title && <h3>{item.title}</h3>}
+            <p>{item.caption}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
+    </Carousel>
   );
 };
 
-const Carousel: React.FC<CarouselProps> = ({ id, list }) => {
-  return (
-    <div id={`carousel-${id}`} className="carousel-single carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        {list.map((item, index) => (
-          <CarouselItem
-            key={index}
-            active={item.active}
-            image={item.image}
-            title={item.title}
-            caption={item.caption}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default Carousel;
+export default CarouselComponent;
