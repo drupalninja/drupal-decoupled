@@ -1,42 +1,43 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import Carousel from './Carousel';
 
-export default {
+const meta: Meta<typeof Carousel> = {
   title: 'Editorial/Carousel',
   component: Carousel,
   argTypes: {
     list: {
       description: 'Define the array of carousel items',
       control: 'object',
-      type: {
-        required: true
-      }
     }
   }
-} as ComponentMeta<typeof Carousel>;
+};
 
-const Template: ComponentStory<typeof Carousel> = (args: any) => <Carousel {...args} />;
+export default meta;
+type Story = StoryObj<typeof Carousel>;
 
-export const Default = Template.bind({});
-Default.args = {
-  id: 'single',
-  list: [
-    {
-      active: true,
-      image: '<img src="https://placehold.co/600x300/333333/FFF?text=First slide" class="d-block w-100" alt="test image" />',
-      title: 'First slide label',
-      caption: 'First slide caption'
-    },
-    {
-      image: '<img src="https://placehold.co/600x300/333333/FFF?text=Second slide" class="d-block w-100" alt="test image" />',
-      title: 'Second slide label',
-      caption: 'Second slide caption'
-    },
-    {
-      image: '<img src="https://placehold.co/600x300/333333/FFF?text=Third slide" class="d-block w-100" alt="test image" />',
-      title: 'Third slide label',
-      caption: 'Third slide caption'
-    }
-  ]
+export const Default: Story = {
+  args: {
+    id: 'single',
+    list: [
+      {
+        active: true,
+        image: '<img src="https://placehold.co/600x300/333333/FFF?text=First slide" class="d-block w-100" alt="test image" />',
+        title: 'First slide label',
+        caption: 'First slide caption'
+      },
+      {
+        active: false,
+        image: '<img src="https://placehold.co/600x300/333333/FFF?text=Second slide" class="d-block w-100" alt="test image" />',
+        title: 'Second slide label',
+        caption: 'Second slide caption'
+      },
+      {
+        active: false,
+        image: '<img src="https://placehold.co/600x300/333333/FFF?text=Third slide" class="d-block w-100" alt="test image" />',
+        title: 'Third slide label',
+        caption: 'Third slide caption'
+      }
+    ]
+  }
 };

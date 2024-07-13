@@ -12,6 +12,6 @@ const Template: Story<typeof Heading> = (args: any) => <Heading {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   title: 'Title Lorem Ipsum Dolor',
-  level: 'h2',
+  level: '2',
   modifier: 'display-3'
 };

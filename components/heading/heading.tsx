@@ -1,15 +1,15 @@
 import * as React from 'react';
 
-interface HeadingProps {
+export interface HeadingProps {
   title: string;
-  level?: string;
+  level?: number;
   modifier?: string;
   icon?: React.ReactNode;
   url?: string;
 }
 
-const Heading: React.FC<HeadingProps> = ({ title, level = 'h2', modifier = '', icon, url }) => {
-  const headingLevel = level as React.ElementType;
+const Heading: React.FC<HeadingProps> = ({ title, level = 2, modifier = '', icon, url }) => {
+  const headingLevel = `h${level}` as React.ElementType;
 
   return (
     <React.Fragment>

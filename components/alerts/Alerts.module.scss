@@ -1,7 +1,9 @@
 // Import site utilities.
 @import '../../styles/bootstrap-init';
 
+// Global styles.
 :global {
+
   // Include Alert styles.
   @import '~bootstrap/scss/alert';
 }

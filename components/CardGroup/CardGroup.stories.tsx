@@ -1,9 +1,10 @@
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import CardGroup from './CardGroup';
 import './CardGroup.module.scss';
+import Image from 'next/image';
 
-export default {
-  title: 'Editorial/Card Group',
+const meta: Meta<typeof CardGroup> = {
+  title: 'Editorial/Card Group Story',
   component: CardGroup,
   argTypes: {
     sectionTitle: {
@@ -13,40 +14,86 @@ export default {
     cardItems: {
       description: 'Array of the card list item content',
       control: 'object',
-      type: {
-        required: true
-      }
     }
   }
 };
 
-const Template = (args: any) => <CardGroup {...args} />;
+export default meta;
+type Story = StoryObj<typeof CardGroup>;
 
-export const CardGroupStory = Template.bind({});
-CardGroupStory.args = {
-  sectionTitle: 'Latest Articles',
-  cardItems: [
-    {
-      modifier: '',
-      media: '<img src="./images/card.webp" class="card-img-top" alt="test image" />',
-      heading: {
-        title: 'Phasellus auctor, turpis',
-        headingLevel: 2,
-        url: '#',
-        modifier: 'card-title mb-4'
+export const Default: Story = {
+  args: {
+    sectionTitle: 'Latest Articles',
+    cardItems: [
+      {
+        modifier: '',
+        media: (
+          <Image src="/images/card.webp" alt="test image" className="card-img-top" width={500} height={300} />
+        ),
+        heading: {
+          title: 'Phasellus auctor, turpis',
+          level: 2,
+          url: '#',
+          modifier: 'card-title mb-4'
+        },
+        tags: ['New feature', 'Announcement'],
+        summaryText:
+          'This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.',
+        link: {
+          url: '#',
+          text: 'Link 1'
+        },
+        link2: {
+          url: '#',
+          text: 'Link 2'
+        }
       },
-      tags: ['New feature', 'Announcement'],
-      summaryText:
-        'This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.',
-      link: {
-        url: '#',
-        text: 'Link 1'
+      {
+        modifier: '',
+        media: (
+          <Image src="/images/card.webp" alt="test image" className="card-img-top" width={500} height={300} />
+        ),
+        heading: {
+          title: 'Vestibulum ante ipsum primis',
+          level: 2,
+          url: '#',
+          modifier: 'card-title mb-4'
+        },
+        tags: ['New feature', 'Announcement'],
+        summaryText:
+          'This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.',
+        link: {
+          url: '#',
+          text: 'Link 1'
+        },
+        link2: {
+          url: '#',
+          text: 'Link 2'
+        }
       },
-      link2: {
-        url: '#',
-        text: 'Link 2'
-      }
-    },
-    // Add more card items as needed
-  ]
+      {
+        modifier: '',
+        media: (
+          <Image src="/images/card.webp" alt="test image" className="card-img-top" width={500} height={300} />
+        ),
+        heading: {
+          title: 'Donec pede justo, fringilla vel',
+          level: 2,
+          url: '#',
+          modifier: 'card-title mb-4'
+        },
+        tags: ['New feature', 'Announcement'],
+        summaryText:
+          'This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.',
+        link: {
+          url: '#',
+          text: 'Link 1'
+        },
+        link2: {
+          url: '#',
+          text: 'Link 2'
+        }
+      },
+    ]
+  }
 };

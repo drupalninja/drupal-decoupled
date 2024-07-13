@@ -1,7 +1,9 @@
 // Import site utilities.
 @import '../../styles/bootstrap-init';
 
+// Global styles.
 :global {
+
   // Include Accordion styles.
   @import '~bootstrap/scss/accordion';
 }

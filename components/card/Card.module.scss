@@ -1,6 +1,12 @@
 @import '../../styles/bootstrap-init';
+
+// Global styles.
+:global {
+
+  @import '~bootstrap/scss/card';
+}
+
 @import '../Button/Button.module';
-@import '~bootstrap/scss/card';
 
 /* Make img 100% width. */
 .card img {

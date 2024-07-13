@@ -2,19 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
-import Heading from '../Heading/Heading';
+import Heading, { HeadingProps } from '../Heading/Heading';
 
-interface CardProps {
+export interface CardProps {
   modifier?: string;
   bodyModifier?: string;
   media?: React.ReactNode;
   mediaLink?: string;
-  heading: {
-    title: string;
-    headingLevel?: '1' | '2' | '3' | '4' | '5' | '6';
-    url?: string;
-    modifier?: string;
-  };
+  heading: HeadingProps;
   layout?: string;
   tags?: string[];
   summaryText?: string;
@@ -63,7 +58,7 @@ const Card: React.FC<CardProps> = ({
         )}
         <Heading
           title={heading.title}
-          level={heading.headingLevel || '2'}
+          level={heading.level || '2'}
           url={heading.url}
           modifier={heading.modifier || 'card-title mb-3'}
         />
