@@ -5,7 +5,7 @@
 @import '../Button/Button.module';
 
 // Include Badges styles.
-@import './node_modules/bootstrap/scss/badge';
+@import '~bootstrap/scss/badge';
 
 .badge {
   width: fit-content;

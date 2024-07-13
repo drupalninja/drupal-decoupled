@@ -5,16 +5,16 @@
 @import '../Button/Button.module.scss';
 
 // Include dropdown styles.
-@import './node_modules/bootstrap/scss/dropdown';
+@import '~bootstrap/scss/dropdown';
 
 // Include offcanvas styles.
-@import './node_modules/bootstrap/scss/offcanvas';
+@import '~bootstrap/scss/offcanvas';
 
 // Include nav styles.
-@import './node_modules/bootstrap/scss/nav';
+@import '~bootstrap/scss/nav';
 
 // Include navbar styles.
-@import './node_modules/bootstrap/scss/navbar';
+@import '~bootstrap/scss/navbar';
 
 .navbar-brand {
 
