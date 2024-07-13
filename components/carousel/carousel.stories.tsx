@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Carousel from './carousel';
+import Carousel from './Carousel';
 
 export default {
   title: 'Editorial/Carousel',
@@ -16,7 +16,7 @@ export default {
   }
 } as ComponentMeta<typeof Carousel>;
 
-const Template: ComponentStory<typeof Carousel> = (args) => <Carousel {...args} />;
+const Template: ComponentStory<typeof Carousel> = (args: any) => <Carousel {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

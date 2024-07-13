@@ -1,6 +1,6 @@
 import React from 'react';
-import Accordion from './accordion';
-import './accordion.scss';
+import Accordion from './Accordion';
+import './Accordion.scss';
 
 export default {
   title: 'Editorial/Accordion Group',
@@ -21,7 +21,7 @@ export default {
   },
 };
 
-const AccordionTemplate = (args) => <Accordion {...args} />;
+const AccordionTemplate = (args: any) => <Accordion {...args} />;
 
 export const AccordionGroup = AccordionTemplate.bind({});
 

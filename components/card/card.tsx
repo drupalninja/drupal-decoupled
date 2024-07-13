@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Badge from '../Badge/Badge';
-import Button from '../button/button';
-import Heading from '../heading/heading';
+import Button from '../Button/Button';
+import Heading from '../Heading/Heading';
 
 interface CardProps {
   modifier?: string;

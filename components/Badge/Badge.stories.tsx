@@ -24,7 +24,7 @@ export default {
   }
 } as ComponentMeta<typeof Badge>;
 
-const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
+const Template: ComponentStory<typeof Badge> = (args: any) => <Badge {...args} />;
 
 export const BadgeComponent = Template.bind({});
 BadgeComponent.args = {

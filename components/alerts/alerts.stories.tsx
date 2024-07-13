@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import Alert from './alerts';
-import AlertProps from './alerts';
+import Alert from './Alerts';
+import AlertProps from './Alerts';
 
 export default {
   title: 'Messages/Alerts',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import Card from './card';
+import Card from './Card';
+import Image from 'next/image';
 
 export default {
   title: 'General/Single Card',
@@ -14,7 +15,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<typeof Card> = (args) => <Card {...args} />;
+const Template: Story<typeof Card> = (args: any) => <Card {...args} />;
 Template.args = args;
 
 export const SingleCard = Template.bind({});
@@ -22,7 +23,7 @@ SingleCard.args = {
   modifier: 'col-6',
   bodyModifier: '',
   media: (
-    <img src="./images/card.webp" className="card-img-top" alt="test image" />
+    <Image src="/images/card.webp" alt="test image" />
   ),
   mediaLink: '#',
   heading: {
@@ -50,7 +51,7 @@ SingleCardNoTags.args = {
   modifier: 'col-6',
   bodyModifier: '',
   media: (
-    <img src="./images/card.webp" className="card-img-top" alt="test image" />
+    <Image src="/images/card.webp" alt="test image" />
   ),
   mediaLink: '#',
   heading: {

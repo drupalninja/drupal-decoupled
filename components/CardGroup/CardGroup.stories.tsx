@@ -1,6 +1,6 @@
 import React from 'react';
-import CardGroup from './card-group';
-import './card-group.scss';
+import CardGroup from './CardGroup';
+import './CardGroup.scss';
 
 export default {
   title: 'Editorial/Card Group',
@@ -20,7 +20,7 @@ export default {
   }
 };
 
-const Template = (args) => <CardGroup {...args} />;
+const Template = (args: any) => <CardGroup {...args} />;
 
 export const CardGroupStory = Template.bind({});
 CardGroupStory.args = {
