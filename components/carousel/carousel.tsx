@@ -1,5 +1,5 @@
 import React from 'react';
-import './Carousel.scss';
+import './Carousel.module.scss';
 
 interface CarouselItemProps {
   active: boolean;

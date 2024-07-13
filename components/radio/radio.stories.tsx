@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import Radio, { RadioProps } from './radio';
+import Radio, { RadioProps } from './Radio';
 
 export default {
   title: 'Data Entry/Radio',

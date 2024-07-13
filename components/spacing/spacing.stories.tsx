@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spacing } from './spacing';
+import { Spacing } from './Spacing';
 
 export default {
   title: 'General/Spacing',

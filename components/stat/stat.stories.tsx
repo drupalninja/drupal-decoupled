@@ -1,7 +1,7 @@
 import React from 'react';
 import { composeStory } from '@storybook/react';
-import Stat from './stat';
-import './stat.scss';
+import Stat from './Stat';
+import './Stat.module.scss';
 
 export default {
   title: 'General/Stat',

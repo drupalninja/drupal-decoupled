@@ -1,6 +1,6 @@
 import React from 'react';
 import { composeStory } from '@storybook/react';
-import Quote from './quote';
+import Quote from './Quote';
 
 export default {
   title: 'Editorial/Quote',

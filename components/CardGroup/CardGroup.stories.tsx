@@ -1,6 +1,6 @@
 import React from 'react';
 import CardGroup from './CardGroup';
-import './CardGroup.scss';
+import './CardGroup.module.scss';
 
 export default {
   title: 'Editorial/Card Group',

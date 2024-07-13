@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Pager from './pager';
+import Pager from './Pager';
 
 export default {
   title: 'Navigation/Pager',

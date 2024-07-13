@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import Link, { LinkProps } from './link';
+import Link, { LinkProps } from './Link';
 
 export default {
   title: 'General/Link',

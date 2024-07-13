@@ -1,6 +1,6 @@
 import React from 'react';
 import Accordion from './Accordion';
-import './Accordion.scss';
+import './Accordion.module.scss';
 
 export default {
   title: 'Editorial/Accordion Group',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { composeStory } from '@storybook/react';
 
-import Media from './media';
+import Media from './Media';
 
 export default {
   title: 'Editorial/Media',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Embed from './embed';
+import Embed from './Embed';
 
 export default {
   title: 'Editorial/Embed',

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import Heading from './heading';
+import Heading from './Heading';
 
 export default {
   title: 'General/Heading',
   component: Heading,
 } as Meta;
 
-const Template: Story<typeof Heading> = (args) => <Heading {...args} />;
+const Template: Story<typeof Heading> = (args: any) => <Heading {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

@@ -25,7 +25,7 @@ fs.readdir(directoryPath, (err, directories) => {
 
       console.log(`Renamed directory ${directory} to ${newDirectoryName}`);
 
-      // Rename files inside the renamed directory
+      // Rename .scss files inside the renamed directory
       fs.readdir(newDirectoryFullPath, (err, files) => {
         if (err) {
           return console.error('Unable to scan subdirectory: ' + err);
@@ -37,16 +37,22 @@ fs.readdir(directoryPath, (err, directories) => {
           }
 
           const oldFilePath = path.join(newDirectoryFullPath, file);
-          const newFileName = file.charAt(0).toUpperCase() + file.slice(1);
-          const newFilePath = path.join(newDirectoryFullPath, newFileName);
+          const fileExtension = path.extname(file);
+          const baseFileName = path.basename(file, fileExtension);
 
-          fs.rename(oldFilePath, newFilePath, (err) => {
-            if (err) {
-              return console.error('Error renaming file: ' + err);
-            }
+          // Only rename if the file has a .scss extension and does not already have .module.scss extension
+          if (fileExtension === '.scss' && !file.endsWith('.module.scss')) {
+            const newFileName = `${baseFileName}.module.scss`;
+            const newFilePath = path.join(newDirectoryFullPath, newFileName);
 
-            console.log(`Renamed file ${file} to ${newFileName} in directory ${newDirectoryName}`);
-          });
+            fs.rename(oldFilePath, newFilePath, (err) => {
+              if (err) {
+                return console.error('Error renaming file: ' + err);
+              }
+
+              console.log(`Renamed file ${file} to ${newFileName} in directory ${newDirectoryName}`);
+            });
+          }
         });
       });
     });

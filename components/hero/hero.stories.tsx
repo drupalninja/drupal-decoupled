@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Hero from './hero';
-import './hero.scss';
+import Hero from './Hero';
+import './Hero.module.scss';
+import Image from 'next/image';
 
 export default {
   title: 'Editorial/Hero',
@@ -42,7 +43,7 @@ const Template: ComponentStory<typeof Hero> = (args) => <Hero {...args} />;
 export const HeroStory = Template.bind({});
 HeroStory.args = {
   modifier: '',
-  media: <img src="./images/hero.png" className="img-fluid rounded" alt="test image" />,
+  media: <Image src="./images/hero.png" className="img-fluid rounded" alt="test image" />,
   title: 'Phasellus <strong>auctor</strong>, turpis',
   bodyText:
     'This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.',

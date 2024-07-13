@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Toggle from './toggle';
+import Toggle from './Toggle';
 
 export default {
   title: 'Data Entry/Toggle',

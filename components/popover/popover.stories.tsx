@@ -1,6 +1,6 @@
 import React from 'react';
 import { composeStory } from '@storybook/react';
-import Popover from './popover';
+import Popover from './Popover';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -22,7 +22,7 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = composeStory(Popover, (args) => <Popover {...args} />);
+const Template = composeStory(Popover, (args: any) => <Popover {...args} />);
 
 export const Default = Template.bind({});
 Default.args = {
