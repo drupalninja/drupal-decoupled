@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
 import Heading, { HeadingProps } from '../Heading/Heading';
+import { Card as BootstrapCard } from 'react-bootstrap';
 
 export interface CardProps {
   modifier?: string;
@@ -36,7 +37,7 @@ const Card: React.FC<CardProps> = ({
   link2,
 }) => {
   return (
-    <div className={`card h-100 ${modifier}`}>
+    <BootstrapCard className={`h-100 ${modifier}`}>
       {media && (
         <React.Fragment>
           {mediaLink ? (
@@ -46,7 +47,7 @@ const Card: React.FC<CardProps> = ({
           )}
         </React.Fragment>
       )}
-      <div className={`card-body mt-2 ${bodyModifier}`}>
+      <BootstrapCard.Body className={`mt-2 ${bodyModifier}`}>
         {tags.length > 0 && (
           <ul className="list-inline mb-2">
             {tags.map((tag, index) => (
@@ -58,7 +59,7 @@ const Card: React.FC<CardProps> = ({
         )}
         <Heading
           title={heading.title}
-          level={heading.level || '2'}
+          level={heading.level || 2}
           url={heading.url}
           modifier={heading.modifier || 'card-title mb-3'}
         />
@@ -87,8 +88,8 @@ const Card: React.FC<CardProps> = ({
             )}
           </ul>
         )}
-      </div>
-    </div>
+      </BootstrapCard.Body>
+    </BootstrapCard>
   );
 };
 

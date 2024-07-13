@@ -2,7 +2,7 @@
 @import '../../styles/bootstrap-init';
 
 // Override Bootstrap button styles.
-body {
+:global {
 
   .btn {
     align-items: center;
