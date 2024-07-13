@@ -41,18 +41,16 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
       <div className="row">
         {galleryItems.map((item) => (
           <div key={item.id} className="col-6 col-md-3 mb-3">
-            <Button
-              className='p-0'
-              variant='link'
+            <a
               onClick={handleShow}
               data-bs-toggle="modal"
               data-bs-target={`#${item.id}Modal`}
               data-cy="modal-button"
             >
               {item.mediaThumb}
-            </Button>
+            </a>
             <Modal
-              show={show}
+              show={false}
               onHide={handleClose}
               size="lg"
               className="fade"
@@ -67,7 +65,7 @@ const GalleryLightbox: React.FC<GalleryLightboxProps> = ({
                 </Modal.Header>
                 <Modal.Body className="gallery-body">{item.media}</Modal.Body>
                 <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
+                  <Button variant="secondary" onClick={() => { }}>
                     Close
                   </Button>
                 </Modal.Footer>

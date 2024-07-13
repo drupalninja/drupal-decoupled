@@ -4,9 +4,13 @@
 // Include modal styles.
 @import '../Modal/Modal.module.scss';
 
-.gallery-body {
+:global {
 
-  img {
-    width: 100%;
+  .gallery-body {
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
