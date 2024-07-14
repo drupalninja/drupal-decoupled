@@ -1,7 +1,8 @@
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import './NewsletterForm.module.scss';
 import NewsletterForm from './NewsletterForm';
 
-export default {
+const meta: Meta<typeof NewsletterForm> = {
   title: 'Editorial/Newsletter Form',
   component: NewsletterForm,
   argTypes: {
@@ -12,9 +13,11 @@ export default {
   }
 };
 
-const Template = (args) => <NewsletterForm {...args} />;
+export default meta;
+type Story = StoryObj<typeof NewsletterForm>;
 
-export const NewsletterFormStory = Template.bind({});
-NewsletterFormStory.args = {
-  modifier: 'border p-4 rounded'
+export const Default: Story = {
+  args: {
+    modifier: 'border p-4 rounded'
+  }
 };

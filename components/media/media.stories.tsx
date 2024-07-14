@@ -1,25 +1,23 @@
-import React from 'react';
-import { composeStory } from '@storybook/react';
-
+import type { Meta, StoryObj } from '@storybook/react';
+import './Media.module.scss';
 import Media from './Media';
 
-export default {
+const meta: Meta<typeof Media> = {
   title: 'Editorial/Media',
   component: Media,
   argTypes: {
     media: {
       description: 'Define the media item',
       control: 'text',
-      type: {
-        required: true,
-      },
     },
   },
 };
 
-const Template = composeStory(Media, (args) => <Media {...args} />);
+export default meta;
+type Story = StoryObj<typeof Media>;
 
-export const MediaComponent = Template.bind({});
-MediaComponent.args = {
-  media: '<img src="./images/card.webp" class="img-fluid rounded" alt="test image" />',
+export const Default: Story = {
+  args: {
+    media: '<img src="./images/card.webp" class="img-fluid rounded" alt="test image" />',
+  }
 };
