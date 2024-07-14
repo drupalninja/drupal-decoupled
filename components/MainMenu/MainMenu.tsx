@@ -1,6 +1,7 @@
 import React from 'react';
 import { MainMenuItem, MainMenuProps } from './Types';
 import Image from 'next/image';
+import './MainMenu.scss';
 
 const MainMenu: React.FC<MainMenuProps> = ({
   modifier,

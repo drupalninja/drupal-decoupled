@@ -7,7 +7,7 @@ const meta: Meta<typeof Hero> = {
   component: Hero,
   argTypes: {
     modifier: { control: 'text' },
-    media: { control: 'text' },
+    media: { control: 'object' },
     title: { control: 'text' },
     bodyText: { control: 'text' },
     layout: {

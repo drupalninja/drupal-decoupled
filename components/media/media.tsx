@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import './Media.scss';
 
 interface MediaProps {
   media: string;
@@ -7,8 +8,7 @@ interface MediaProps {
 const Media: FC<MediaProps> = ({ media }) => {
   return (
     <div className="media">
-      {/* eslint-disable-next-line react/no-danger */}
-      <div dangerouslySetInnerHTML={{ __html: media }}></div>
+      {media}
     </div>
   );
 };

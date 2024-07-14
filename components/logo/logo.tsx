@@ -1,4 +1,6 @@
 import React, { FC } from 'react';
+import Image from 'next/image';
+import './Logo.scss';
 
 interface LogoProps {
   modifier?: string;
@@ -8,7 +10,7 @@ interface LogoProps {
 const Logo: FC<LogoProps> = ({ modifier = 'col-3', siteLogo = './images/logo.svg' }) => {
   return (
     <div className={modifier}>
-      <img src={siteLogo} className="logo w-100" alt="Site logo" />
+      <Image src={siteLogo} className="logo w-100" alt="Site logo" />
     </div>
   );
 };

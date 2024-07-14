@@ -1,9 +1,8 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import Logo from './Logo';
 
-export default {
+const meta: Meta<typeof Logo> = {
   title: 'General/Logo',
   component: Logo,
   argTypes: {
@@ -16,12 +15,15 @@ export default {
       control: 'text',
     },
   },
-} as ComponentMeta<typeof Logo>;
+};
 
-const Template: ComponentStory<typeof Logo> = (args) => <Logo {...args} />;
+export default meta;
 
-export const LogoStory = Template.bind({});
-LogoStory.args = {
-  modifier: 'col-3',
-  siteLogo: './images/logo.svg',
+type Story = StoryObj<typeof Logo>;
+
+export const Default: Story = {
+  args: {
+    modifier: 'col-3',
+    siteLogo: './images/logo.svg',
+  }
 };
