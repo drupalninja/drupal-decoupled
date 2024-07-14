@@ -1,35 +1,67 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { OverlayTrigger, Popover as BSPopover, Button } from 'react-bootstrap';
+import './Popover.scss';
 
 interface PopoverProps {
   title: string;
   content: string;
   placement?: 'top' | 'bottom' | 'left' | 'right';
-  trigger?: 'click' | 'hover' | 'focus' | 'manual';
-  boundary?: 'scrollParent' | 'window' | 'viewport';
-  popoverAttributes?: React.HTMLAttributes<HTMLDivElement>;
+  trigger?: 'click' | 'hover' | 'focus' | Array<'click' | 'hover' | 'focus'>;
+  buttonVariant?: string;
+  buttonText?: string;
+  buttonAttributes?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 }
 
 const Popover: React.FC<PopoverProps> = ({
   title,
   content,
-  placement = 'top',
+  placement = 'bottom',
   trigger = 'click',
-  boundary = 'scrollParent',
-  popoverAttributes,
+  buttonVariant = 'danger',
+  buttonText = 'Click to toggle popover',
+  buttonAttributes,
 }) => {
+  const [show, setShow] = useState(false);
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    if (show) {
+      // Log the position of the target element
+      if (targetRef.current) {
+        const rect = (targetRef.current as HTMLElement).getBoundingClientRect();
+      }
+    }
+  }, [show]);
+
+  const popover = (
+    <BSPopover id="popover-basic" style={{ zIndex: 9999 }}>
+      <BSPopover.Header as="h3">{title}</BSPopover.Header>
+      <BSPopover.Body>{content}</BSPopover.Body>
+    </BSPopover>
+  );
+
   return (
-    <div
-      className={`popover bs-popover-${placement}`}
-      role="tooltip"
-      data-bs-toggle="popover"
-      data-bs-trigger={trigger}
-      data-bs-boundary={boundary}
-      {...popoverAttributes}
+    <OverlayTrigger
+      trigger={trigger}
+      placement={placement}
+      overlay={popover}
+      show={show}
+      onToggle={(nextShow) => {
+        setShow(nextShow);
+      }}
     >
-      <div className="popover-arrow"></div>
-      <h3 className="popover-header">{title}</h3>
-      <div className="popover-body">{content}</div>
-    </div>
+      <Button
+        ref={targetRef}
+        variant={buttonVariant}
+        {...buttonAttributes}
+        onClick={(e) => {
+          buttonAttributes?.onClick?.(e);
+          setShow(!show);
+        }}
+      >
+        {buttonText}
+      </Button>
+    </OverlayTrigger>
   );
 };
 

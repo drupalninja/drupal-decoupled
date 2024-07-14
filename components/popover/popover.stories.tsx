@@ -1,9 +1,7 @@
-import React from 'react';
-import { composeStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import Popover from './Popover';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+const meta: Meta<typeof Popover> = {
   title: 'Messages/Popover',
   component: Popover,
   argTypes: {
@@ -15,17 +13,21 @@ export default {
     trigger: {
       control: { type: 'select', options: ['click', 'hover', 'focus', 'manual'] },
     },
-    boundary: {
-      control: { type: 'select', options: ['scrollParent', 'window', 'viewport'] },
+    buttonVariant: {
+      control: { type: 'select', options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'] },
     },
+    buttonText: { control: 'text' },
+    buttonAttributes: { control: 'object' },
   },
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = composeStory(Popover, (args: any) => <Popover {...args} />);
+export default meta;
 
-export const Default = Template.bind({});
-Default.args = {
-  title: 'Popover title',
-  content: 'And here\'s some amazing content. It\'s very engaging.Right? ',
+type Story = StoryObj<typeof Popover>;
+
+export const Default: Story = {
+  args: {
+    title: 'Popover title',
+    content: 'And here\'s some amazing content. It\'s very engaging.Right? ',
+  },
 };
