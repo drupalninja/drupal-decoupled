@@ -1,36 +1,35 @@
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import Breadcrumb from './Breadcrumb';
 
-export default {
+const meta: Meta<typeof Breadcrumb> = {
   title: 'Navigation/Breadcrumb',
   component: Breadcrumb,
   argTypes: {
     breadcrumb: {
       description: 'Define the breadcrumb content',
       control: 'object',
-      type: {
-        required: true
-      }
     }
   }
 };
 
-const BreadcrumbTemplate = (args: any) => <Breadcrumb {...args} />;
+export default meta;
+type Story = StoryObj<typeof Breadcrumb>;
 
-export const Default = BreadcrumbTemplate.bind({});
-Default.args = {
-  breadcrumb: [
-    {
-      text: 'Home',
-      url: '#'
-    },
-    {
-      text: 'Parent Page',
-      url: '#'
-    },
-    {
-      text: 'Current Page',
-      url: ''
-    }
-  ]
+export const Default: Story = {
+  args: {
+    breadcrumb: [
+      {
+        text: 'Home',
+        url: '#'
+      },
+      {
+        text: 'Parent Page',
+        url: '#'
+      },
+      {
+        text: 'Current Page',
+        url: ''
+      }
+    ]
+  }
 };

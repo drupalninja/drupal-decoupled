@@ -18,7 +18,7 @@ type Story = StoryObj<typeof MainMenu>;
 export const Default: Story = {
   args: {
     modifier: '',
-    linkModifier: 'text-dark',
+    linkModifier: '',
     siteLogo: './images/logo.svg',
     menuItems: [
       {

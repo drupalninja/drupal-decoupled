@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navbar, Nav, Offcanvas, Container } from 'react-bootstrap';
 import { MainMenuItem, MainMenuProps } from './Types';
 import Image from 'next/image';
 import './MainMenu.scss';
@@ -10,30 +11,34 @@ const MainMenu: React.FC<MainMenuProps> = ({
   menuItems,
 }) => {
   return (
-    <nav className={`navbar navbar-expand-lg bg-primary py-2 ${modifier}`} data-bs-theme="dark">
-      <div className="container">
-        <a className="navbar-brand" href="/">
-          <Image src={siteLogo} alt="Site Name" width={100} height={50} style={{ marginRight: '4px' }} />
-        </a>
-
-        <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="offcanvas offcanvas-end d-lg-none" tabIndex={-1} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div className="d-flex justify-content-end p-2 pb-0">
-            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div className="offcanvas-body">
-            <MainMenuItems items={menuItems} linkModifier={linkModifier} depth={0} isDesktop={false} />
-          </div>
-        </div>
-
-        <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <MainMenuItems items={menuItems} linkModifier={linkModifier} depth={0} isDesktop={true} />
-        </div>
-      </div>
-    </nav>
+    <Navbar bg="primary" expand="lg" variant="dark" className={`py-2 ${modifier}`}>
+      <Container>
+        <Navbar.Brand href="/">
+          <Image src={siteLogo} alt="Site Name" width={312} height={96} style={{ marginRight: '4px' }} />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="offcanvasNavbar" />
+        <Navbar.Offcanvas
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+          placement="end"
+          className="d-lg-none"
+        >
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              <MainMenuItems items={menuItems} linkModifier={linkModifier} depth={0} isDesktop={false} />
+            </Nav>
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
+        <Navbar.Collapse id="navbarSupportedContent" className="d-none d-lg-block">
+          <Nav className="ms-auto">
+            <MainMenuItems items={menuItems} linkModifier={linkModifier} depth={0} isDesktop={true} />
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

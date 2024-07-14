@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dropdown } from 'react-bootstrap';
 import './InlineNavigation.scss';
 
 interface InlineNavigationProps {
@@ -7,16 +8,17 @@ interface InlineNavigationProps {
 
 const InlineNavigation: React.FC<InlineNavigationProps> = ({ navItems }) => {
   return (
-    <div className="dropdown">
-      <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <Dropdown>
+      <Dropdown.Toggle variant="primary" id="dropdown-basic">
         Inline navigation
-      </button>
-      <ul className="dropdown-menu">
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
         {navItems.map((item, index) => (
-          <li key={index}><a className="dropdown-item" href={item.url}>{item.text}</a></li>
+          <Dropdown.Item key={index} href={item.url}>{item.text}</Dropdown.Item>
         ))}
-      </ul>
-    </div>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 };
 
