@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import Button from './Button';
 
 const meta: Meta<typeof Button> = {
@@ -45,7 +44,6 @@ export const Secondary: Story = {
     modifier: 'btn-secondary',
   }
 };
-
 
 export const PrimaryOutlined: Story = {
   args: {

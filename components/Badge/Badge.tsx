@@ -1,4 +1,4 @@
-import React from 'react';
+import Badge from 'react-bootstrap/Badge';
 import './Badge.scss';
 
 interface BadgeProps {
@@ -6,10 +6,10 @@ interface BadgeProps {
   modifier?: string;
 }
 
-const Badge: React.FC<BadgeProps> = ({ tag, modifier }) => {
+const BadgeComponent: React.FC<BadgeProps> = ({ tag, modifier }) => {
   return (
-    <span className={`badge rounded-pill d-block fs-7 px-2 py-1 fw-semibold${modifier ? ` ${modifier}` : ''}`}>{tag}</span>
+    <Badge className={`rounded-pill d-block fs-7 px-2 py-1 fw-semibold${modifier ? ` ${modifier}` : ''}`}>{tag}</Badge>
   );
 };
 
-export default Badge;
+export default BadgeComponent;
