@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Embed from './Embed';
-import './Embed.scss';
 
 const meta: Meta<typeof Embed> = {
   title: 'Editorial/Embed',

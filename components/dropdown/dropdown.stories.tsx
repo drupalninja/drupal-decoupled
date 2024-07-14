@@ -1,17 +1,20 @@
-import React from 'react';
-import { Dropdown } from './Dropdown';
+import type { Meta, StoryObj } from '@storybook/react';
+import Dropdown from './Dropdown';
 
-export default {
+const meta: Meta<typeof Dropdown> = {
   title: 'Data Entry/Dropdown',
   component: Dropdown,
 };
 
-export const Default = () => {
-  const options = [
-    { value: '1', label: 'One' },
-    { value: '2', label: 'Two' },
-    { value: '3', label: 'Three' },
-  ];
+export default meta;
+type Story = StoryObj<typeof Dropdown>;
 
-  return <Dropdown options={options} />;
+export const Default: Story = {
+  args: {
+    options: [
+      { value: '1', label: 'One' },
+      { value: '2', label: 'Two' },
+      { value: '3', label: 'Three' },
+    ],
+  },
 };

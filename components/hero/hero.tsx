@@ -1,5 +1,6 @@
 import React from 'react';
 import Button, { ButtonProps } from '../Button/Button';
+import './Hero.scss';
 
 export interface HeroProps {
   modifier?: string;

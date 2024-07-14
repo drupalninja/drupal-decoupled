@@ -1,8 +1,8 @@
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import SideBySide from './SideBySide';
 import Image from 'next/image';
 
-export default {
+const meta: Meta<typeof SideBySide> = {
   title: 'Editorial/Side-by-Side',
   component: SideBySide,
   argTypes: {
@@ -35,10 +35,7 @@ export default {
       name: 'Layout',
       description: 'Controls image left/right placement.',
       control: 'select',
-      options: {
-        'Pin image left': 'left',
-        'Pin image right': 'right',
-      },
+      options: ['left', 'right'],
     },
     modifier: {
       name: 'Modifier',
@@ -48,35 +45,38 @@ export default {
   },
 };
 
-const Template = (args: any) => <SideBySide {...args} />;
+export default meta;
+type Story = StoryObj<typeof SideBySide>;
 
-export const Left = Template.bind({});
-Left.args = {
-  title: 'Lorem ipsum dolor sit amet, elit.',
-  eyebrow: 'Eyebrow',
-  media: <Image src="/images/card.webp" className="img-fluid rounded" alt="test image" />,
-  body: 'Contra legem facit qui id facit quod lex prohibet. Nec dubitamus multa iter quae et nos invenerat. Praeterea iter est quasdam res quas ex communi. Lorem ipsum dolor sit amet, consectetur adipisici elit.',
-  button: {
-    url: '#',
-    text: 'Call to action',
-    icon: 'arrow_right_alt',
-    modifier: 'btn-primary has-icon',
-  },
-  layout: 'left',
-  modifier: '',
+export const Default: Story = {
+  args: {
+    title: 'Lorem ipsum dolor sit amet, elit.',
+    eyebrow: 'Eyebrow',
+    media: <Image src="/images/card.webp" width={500} height={300} className="img-fluid rounded" alt="test image" />,
+    body: 'Contra legem facit qui id facit quod lex prohibet. Nec dubitamus multa iter quae et nos invenerat. Praeterea iter est quasdam res quas ex communi. Lorem ipsum dolor sit amet, consectetur adipisici elit.',
+    button: {
+      url: '#',
+      text: 'Call to action',
+      icon: 'arrow_right_alt',
+      modifier: 'btn-primary has-icon',
+    },
+    layout: 'left',
+    modifier: '',
+  }
 };
 
-export const Right = Template.bind({});
-Right.args = {
-  title: 'Lorem ipsum dolor sit amet, elit.',
-  eyebrow: 'Eyebrow',
-  media: <Image src="/images/card.webp" className="img-fluid rounded" alt="test image" />,
-  body: 'Contra legem facit qui id facit quod lex prohibet. Nec dubitamus multa iter quae et nos invenerat. Praeterea iter est quasdam res quas ex communi. Lorem ipsum dolor sit amet, consectetur adipisici elit.',
-  button: {
-    url: '#',
-    text: 'Call to action',
-    icon: 'arrow_right_alt',
-    modifier: 'btn-primary has-icon',
-  },
-  layout: 'right',
-};
+export const Right: Story = {
+  args: {
+    title: 'Lorem ipsum dolor sit amet, elit.',
+    eyebrow: 'Eyebrow',
+    media: <Image src="/images/card.webp" width={500} height={300} className="img-fluid rounded" alt="test image" />,
+    body: 'Contra legem facit qui id facit quod lex prohibet. Nec dubitamus multa iter quae et nos invenerat. Praeterea iter est quasdam res quas ex communi. Lorem ipsum dolor sit amet, consectetur adipisici elit.',
+    button: {
+      url: '#',
+      text: 'Call to action',
+      icon: 'arrow_right_alt',
+      modifier: 'btn-primary has-icon',
+    },
+    layout: 'right',
+  }
+}

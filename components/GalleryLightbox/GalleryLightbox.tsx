@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap';
+import './GalleryLightbox.scss';
 
 interface GalleryLightboxProps {
   sectionTitle?: string;

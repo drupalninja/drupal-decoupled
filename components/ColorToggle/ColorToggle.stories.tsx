@@ -1,14 +1,15 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import ColorToggle from './ColorToggle';
 
-export default {
+const meta: Meta<typeof ColorToggle> = {
   title: 'General/Color Mode Toggle',
   component: ColorToggle,
-} as Meta;
+};
 
-const Template: Story<typeof ColorToggle> = (args: any) => <ColorToggle {...args} />;
+export default meta;
+type Story = StoryObj<typeof ColorToggle>;
 
-export const ColorToggleComponent = Template.bind({});
-ColorToggleComponent.args = {};
+export const ColorToggleComponent: Story = {
+  args: {},
+};

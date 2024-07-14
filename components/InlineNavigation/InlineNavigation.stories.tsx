@@ -1,7 +1,7 @@
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import InlineNavigation from './InlineNavigation';
 
-export default {
+const meta: Meta<typeof InlineNavigation> = {
   title: 'Navigation/Inline Navigation',
   component: InlineNavigation,
   argTypes: {
@@ -9,22 +9,24 @@ export default {
   }
 };
 
-const Template = (args: any) => <InlineNavigation {...args} />;
+export default meta;
+type Story = StoryObj<typeof InlineNavigation>;
 
-export const InlineNavigationStory = Template.bind({});
-InlineNavigationStory.args = {
-  navItems: [
-    {
-      text: 'Link 1',
-      url: '#'
-    },
-    {
-      text: 'Link 2',
-      url: '#'
-    },
-    {
-      text: 'Link 3',
-      url: '#'
-    }
-  ]
+export const Default: Story = {
+  args: {
+    navItems: [
+      {
+        text: 'Link 1',
+        url: '#'
+      },
+      {
+        text: 'Link 2',
+        url: '#'
+      },
+      {
+        text: 'Link 3',
+        url: '#'
+      }
+    ]
+  }
 };

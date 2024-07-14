@@ -1,4 +1,5 @@
 import React from 'react';
+import './InlineNavigation.css';
 
 interface InlineNavigationProps {
   navItems: { text: string; url: string }[];

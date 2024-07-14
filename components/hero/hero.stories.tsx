@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Hero from './Hero';
-import './Hero.scss';
 import Image from 'next/image';
 
 const meta: Meta<typeof Hero> = {

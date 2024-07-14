@@ -1,14 +1,16 @@
 import React from 'react';
+import Image from 'next/image';
+import './Image.scss';
 
 interface ImageProps {
   src: string;
   alt: string;
 }
 
-const Image: React.FC<ImageProps> = ({ src, alt }) => {
+const CustomImage: React.FC<ImageProps> = ({ src, alt }) => {
   return (
-    <img src={src} className="img-fluid rounded" alt={alt} />
+    <Image src={src} alt={alt} className="img-fluid rounded" />
   );
 };
 
-export default Image;
+export default CustomImage;

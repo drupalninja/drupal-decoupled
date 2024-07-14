@@ -18,3 +18,5 @@ export const Dropdown: React.FC<DropdownProps> = ({ options, selectedValue, onCh
     </select>
   );
 };
+
+export default Dropdown;

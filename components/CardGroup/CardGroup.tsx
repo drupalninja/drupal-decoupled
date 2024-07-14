@@ -1,5 +1,6 @@
 import React from 'react';
 import Card, { CardProps } from '../Card/Card';
+import './CardGroup.scss';
 
 interface CardGroupProps {
   sectionTitle?: string;

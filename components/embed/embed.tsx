@@ -1,4 +1,5 @@
 import React from 'react';
+import './Embed.scss';
 
 interface EmbedProps {
   embed: string;

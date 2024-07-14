@@ -1,9 +1,8 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import Button, { ButtonProps } from './Button';
+import Button from './Button';
 
-export default {
+const meta: Meta<typeof Button> = {
   title: 'General/Button',
   component: Button,
   argTypes: {
@@ -24,54 +23,62 @@ export default {
       control: 'text',
     },
   },
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = (args: any) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-  url: '#',
-  text: 'Primary Button',
-  icon: 'arrow_right_alt',
-  modifier: 'btn-primary',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  url: '#',
-  text: 'Secondary Button',
-  icon: 'arrow_right_alt',
-  modifier: 'btn-secondary',
+export default meta;
+type Story = StoryObj<typeof Button>;
+
+export const Default: Story = {
+  args: {
+    url: '#',
+    text: 'Primary Button',
+    icon: 'arrow_right_alt',
+    modifier: 'btn-primary',
+  }
+}
+
+export const Secondary: Story = {
+  args: {
+    url: '#',
+    text: 'Secondary Button',
+    icon: 'arrow_right_alt',
+    modifier: 'btn-secondary',
+  }
 };
 
-export const PrimaryOutlined = Template.bind({});
-PrimaryOutlined.args = {
-  url: '#',
-  text: 'Primary Button',
-  icon: '',
-  modifier: 'btn-outline-primary',
+
+export const PrimaryOutlined: Story = {
+  args: {
+    url: '#',
+    text: 'Primary Button',
+    icon: '',
+    modifier: 'btn-outline-primary',
+  }
 };
 
-export const SecondaryOutlined = Template.bind({});
-SecondaryOutlined.args = {
-  url: '#',
-  text: 'Secondary Button',
-  icon: '',
-  modifier: 'btn-outline-secondary',
+export const SecondaryOutlined: Story = {
+  args: {
+    url: '#',
+    text: 'Secondary Button',
+    icon: '',
+    modifier: 'btn-outline-secondary',
+  }
 };
 
-export const PrimarySmall = Template.bind({});
-PrimarySmall.args = {
-  url: '#',
-  text: 'Primary Button Small',
-  icon: '',
-  modifier: 'btn-primary btn-sm',
+export const PrimarySmall: Story = {
+  args: {
+    url: '#',
+    text: 'Primary Button Small',
+    icon: '',
+    modifier: 'btn-primary btn-sm',
+  }
 };
 
-export const SecondarySmall = Template.bind({});
-SecondarySmall.args = {
-  url: '#',
-  text: 'Secondary Button Small',
-  icon: '',
-  modifier: 'btn-secondary btn-sm',
+export const SecondarySmall: Story = {
+  args: {
+    url: '#',
+    text: 'Secondary Button Small',
+    icon: '',
+    modifier: 'btn-secondary btn-sm',
+  }
 };

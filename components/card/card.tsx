@@ -4,6 +4,7 @@ import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
 import Heading, { HeadingProps } from '../Heading/Heading';
 import { Card as BootstrapCard } from 'react-bootstrap';
+import './Card.scss';
 
 export interface CardProps {
   modifier?: string;

@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CardGroup from './CardGroup';
-import './CardGroup.scss';
 import Image from 'next/image';
 
 const meta: Meta<typeof CardGroup> = {
