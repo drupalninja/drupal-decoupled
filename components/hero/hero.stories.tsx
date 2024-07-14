@@ -1,10 +1,9 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import Hero from './Hero';
 import './Hero.module.scss';
 import Image from 'next/image';
 
-export default {
+const meta: Meta<typeof Hero> = {
   title: 'Editorial/Hero',
   component: Hero,
   argTypes: {
@@ -36,26 +35,28 @@ export default {
       }
     }
   }
-} as ComponentMeta<typeof Hero>;
+};
 
-const Template: ComponentStory<typeof Hero> = (args) => <Hero {...args} />;
+export default meta;
+type Story = StoryObj<typeof Hero>;
 
-export const HeroStory = Template.bind({});
-HeroStory.args = {
-  modifier: '',
-  media: <Image src="./images/hero.png" className="img-fluid rounded" alt="test image" />,
-  title: 'Phasellus <strong>auctor</strong>, turpis',
-  bodyText:
-    'This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.',
-  layout: 'image_top',
-  button: {
-    url: '#',
-    text: 'Link 1',
-    icon: 'arrow_right_alt'
-  },
-  button2: {
-    url: '#',
-    text: 'Link 2',
-    icon: 'arrow_right_alt'
+export const Default: Story = {
+  args: {
+    modifier: '',
+    media: <Image src="./images/hero.png" width={1280} height={452} className="img-fluid rounded" alt="test image" />,
+    title: 'Phasellus <strong>auctor</strong>, turpis',
+    bodyText:
+      'This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.',
+    layout: 'image_top',
+    button: {
+      url: '#',
+      text: 'Link 1',
+      icon: 'arrow_right_alt'
+    },
+    button2: {
+      url: '#',
+      text: 'Link 2',
+      icon: 'arrow_right_alt'
+    }
   }
 };

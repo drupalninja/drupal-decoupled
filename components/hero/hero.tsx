@@ -1,21 +1,14 @@
 import React from 'react';
+import Button, { ButtonProps } from '../Button/Button';
 
-interface HeroProps {
+export interface HeroProps {
   modifier?: string;
   media?: React.ReactNode;
   title?: React.ReactNode;
   bodyText?: string;
   layout?: 'image_top' | 'image_bottom';
-  button?: {
-    url: string;
-    text: string;
-    icon: string;
-  };
-  button2?: {
-    url: string;
-    text: string;
-    icon: string;
-  };
+  button?: ButtonProps;
+  button2?: ButtonProps;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -39,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({
 
       {title && (
         <div>
-          <h1 className="display-5 fw-semibold mb-4 mb-lg-4">{title}</h1>
+          <h1 className="heading display-5 fw-semibold mb-4 mb-lg-4" dangerouslySetInnerHTML={{ __html: title }}></h1>
         </div>
       )}
 
@@ -80,22 +73,6 @@ const Hero: React.FC<HeroProps> = ({
         </div>
       )}
     </div>
-  );
-};
-
-interface ButtonProps {
-  url: string;
-  text: string;
-  icon: string;
-  modifier?: string;
-}
-
-const Button: React.FC<ButtonProps> = ({ url, text, icon, modifier = '' }) => {
-  return (
-    <a href={url} className={`btn ${modifier}`}>
-      {text}
-      <i className="material-icons">{icon}</i>
-    </a>
   );
 };
 
