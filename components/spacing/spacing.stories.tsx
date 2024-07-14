@@ -1,9 +1,14 @@
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Spacing } from './Spacing';
 
-export default {
+const meta: Meta<typeof Spacing> = {
   title: 'General/Spacing',
   component: Spacing,
 };
 
-export const Default = () => <Spacing />;
+export default meta;
+type Story = StoryObj<typeof Spacing>;
+
+export const Default: Story = {
+  render: () => <Spacing />,
+};

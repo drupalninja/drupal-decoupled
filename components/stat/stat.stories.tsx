@@ -1,9 +1,8 @@
-import React from 'react';
-import { composeStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import Stat from './Stat';
 import './Stat.scss';
 
-export default {
+const meta: Meta<typeof Stat> = {
   title: 'General/Stat',
   component: Stat,
   argTypes: {
@@ -14,12 +13,14 @@ export default {
   }
 };
 
-const Template = composeStory(Stat, (args: StatProps) => <Stat {...args} />);
+type Story = StoryObj<typeof Stat>;
+export default meta;
 
-export const StatStory = Template.bind({});
-StatStory.args = {
-  media: <span className="material-symbols-outlined display-1">monitoring</span>,
-  heading: 'This is small headling',
-  body: 'Vestibulum fringilla pede sit amet augue. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.',
-  modifier: 'col-4'
+export const Default: Story = {
+  args: {
+    media: <span className="material-symbols-outlined display-1">monitoring</span>,
+    heading: 'This is small headling',
+    body: 'Vestibulum fringilla pede sit amet augue. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.',
+    modifier: 'col-4'
+  }
 };

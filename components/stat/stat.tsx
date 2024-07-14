@@ -1,4 +1,5 @@
 import React from 'react';
+import './Stat.scss';
 
 interface StatProps {
   media?: React.ReactNode;

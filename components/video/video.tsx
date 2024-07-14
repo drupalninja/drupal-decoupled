@@ -1,4 +1,5 @@
 import React from 'react';
+import './Video.scss';
 
 interface VideoProps {
   video: string;
@@ -6,10 +7,7 @@ interface VideoProps {
 
 const Video: React.FC<VideoProps> = ({ video }) => {
   return (
-    <div className="ratio ratio-16x9">
-      {/* Render the video embed code */}
-      <div dangerouslySetInnerHTML={{ __html: video }} />
-    </div>
+    <div className="ratio ratio-16x9" dangerouslySetInnerHTML={{ __html: video }}></div>
   );
 };
 
