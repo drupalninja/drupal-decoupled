@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Offcanvas, Container } from 'react-bootstrap';
+import { Navbar, Nav, Offcanvas, Container, NavDropdown } from 'react-bootstrap';
 import { MainMenuItem, MainMenuProps } from './Types';
 import Image from 'next/image';
 import './MainMenu.scss';
@@ -33,7 +33,7 @@ const MainMenu: React.FC<MainMenuProps> = ({
           </Offcanvas.Body>
         </Navbar.Offcanvas>
         <Navbar.Collapse id="navbarSupportedContent" className="d-none d-lg-block">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto gap-4">
             <MainMenuItems items={menuItems} linkModifier={linkModifier} depth={0} isDesktop={true} />
           </Nav>
         </Navbar.Collapse>
@@ -49,33 +49,36 @@ const MainMenuItems: React.FC<{
   isDesktop: boolean;
 }> = ({ items, linkModifier, depth, isDesktop }) => {
   return (
-    <ul className={`${depth === 0 ? 'navbar-nav mr-auto' : 'dropdown-menu'} ${depth === 0 && isDesktop ? 'nav-desktop gap-4' : ''}`}>
+    <>
       {items.map((item, index) => (
-        <li
-          key={index}
-          className={`nav-item ${item.isExpanded ? 'dropdown' : ''}`}
-        >
-          {item.below ? (
-            <>
-              <a
-                href={item.url}
-                className={`nav-link fs-5 ${item.isExpanded ? 'dropdown-toggle' : ''} ${linkModifier ?? ''} ${item.inActiveTrail ? 'active' : ''}`}
-                role="button"
-                data-bs-toggle={item.isExpanded ? 'dropdown' : undefined}
-                aria-expanded={item.isExpanded}
+        item.below ? (
+          <NavDropdown
+            key={index}
+            title={item.title}
+            id={`nav-dropdown-${index}`}
+            className={`fs-5 ${linkModifier ?? ''} ${item.inActiveTrail ? 'active' : ''}`}
+          >
+            {item.below.map((subItem, subIndex) => (
+              <NavDropdown.Item
+                key={subIndex}
+                href={subItem.url}
+                className={`${linkModifier ?? ''} ${subItem.inActiveTrail ? 'active' : ''}`}
               >
-                {item.title}
-              </a>
-              <MainMenuItems items={item.below} linkModifier={linkModifier} depth={depth + 1} isDesktop={isDesktop} />
-            </>
-          ) : (
-            <a href={item.url} className={`${depth > 0 ? 'dropdown-item' : 'nav-link fs-5'} ${linkModifier ?? ''} ${item.inActiveTrail ? 'active' : ''}`}>
-              {item.title}
-            </a>
-          )}
-        </li>
+                {subItem.title}
+              </NavDropdown.Item>
+            ))}
+          </NavDropdown>
+        ) : (
+          <Nav.Link
+            key={index}
+            href={item.url}
+            className={`nav-link fs-5 ${linkModifier ?? ''} ${item.inActiveTrail ? 'active' : ''}`}
+          >
+            {item.title}
+          </Nav.Link>
+        )
       ))}
-    </ul>
+    </>
   );
 };
 

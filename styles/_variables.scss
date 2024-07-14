@@ -5,7 +5,8 @@ $form-label-font-size: 0.875rem !default;
 
 // Override spacing variables.
 $spacer: 1rem !default;
-$spacers: () !default;
+$spacers: (
+  ) !default;
 $spacers: (
   0: 0,
   1: $spacer * 0.5,
