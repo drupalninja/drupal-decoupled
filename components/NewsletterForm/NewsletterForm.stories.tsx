@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import './NewsletterForm.module.scss';
+import './NewsletterForm.scss';
 import NewsletterForm from './NewsletterForm';
 
 const meta: Meta<typeof NewsletterForm> = {

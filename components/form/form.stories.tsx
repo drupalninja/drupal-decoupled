@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Form from './Form';
-import './Form.module.scss';
+import './Form.scss';
 
 const meta: Meta<typeof Form> = {
   title: 'Editorial/Form',

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import './Carousel.module.scss';
+import './Carousel.scss';
 
 interface CarouselItemProps {
   active: boolean;
   image: string;
   title: string;
   caption: string;
+  id: string;
 }
 
 interface CarouselProps {

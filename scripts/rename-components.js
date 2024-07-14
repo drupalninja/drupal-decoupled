@@ -25,7 +25,7 @@ fs.readdir(directoryPath, (err, directories) => {
 
       console.log(`Renamed directory ${directory} to ${newDirectoryName}`);
 
-      // Rename .scss files inside the renamed directory
+      // Rename .module.scss files inside the renamed directory
       fs.readdir(newDirectoryFullPath, (err, files) => {
         if (err) {
           return console.error('Unable to scan subdirectory: ' + err);
@@ -40,9 +40,9 @@ fs.readdir(directoryPath, (err, directories) => {
           const fileExtension = path.extname(file);
           const baseFileName = path.basename(file, fileExtension);
 
-          // Only rename if the file has a .scss extension and does not already have .module.scss extension
-          if (fileExtension === '.scss' && !file.endsWith('.module.scss')) {
-            const newFileName = `${baseFileName}.module.scss`;
+          // Only rename if the file has a .module.scss extension
+          if (fileExtension === '.scss' && file.endsWith('.module.scss')) {
+            const newFileName = file.replace('.module.scss', '.scss');
             const newFilePath = path.join(newDirectoryFullPath, newFileName);
 
             fs.rename(oldFilePath, newFilePath, (err) => {

@@ -1,9 +1,0 @@
-// Import site utilities.
-@import '../../styles/bootstrap-init';
-
-// Global styles.
-:global {
-
-  // Include Breadcrumb styles.
-  @import '~bootstrap/scss/breadcrumb';
-}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Accordion } from 'react-bootstrap';
+import './Accordion.scss';
 
 interface AccordionItemProps {
   heading: string;

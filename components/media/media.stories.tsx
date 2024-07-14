@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import './Media.module.scss';
+import './Media.scss';
 import Media from './Media';
 
 const meta: Meta<typeof Media> = {

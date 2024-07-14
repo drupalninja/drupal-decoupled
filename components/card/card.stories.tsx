@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Card from './Card';
 import Image from 'next/image';
-import './Card.module.scss';
+import './Card.scss';
 
 const meta: Meta<typeof Card> = {
   title: 'General/Single Card',

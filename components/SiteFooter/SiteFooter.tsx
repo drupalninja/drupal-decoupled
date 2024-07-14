@@ -1,5 +1,5 @@
 import React from 'react';
-import './SiteFooter.module.scss';
+import './SiteFooter.scss';
 import Image from 'next/image';
 
 type SiteFooterProps = {

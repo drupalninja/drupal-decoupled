@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Badge from './Badge';
-import './Badge.module.scss';
+import './Badge.scss';
 
 export default {
   title: 'General/Badge',

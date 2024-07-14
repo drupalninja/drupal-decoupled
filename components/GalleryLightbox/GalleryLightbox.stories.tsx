@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import GalleryLightbox from './GalleryLightbox';
-import './GalleryLightbox.module.scss';
+import './GalleryLightbox.scss';
 import Image from 'next/image';
 
 const meta: Meta<typeof GalleryLightbox> = {
