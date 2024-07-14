@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchResults.scss';
 
 interface SearchResultsItemProps {
   title: string;
@@ -10,9 +11,7 @@ interface SearchResultsItemProps {
 const SearchResultsItem: React.FC<SearchResultsItemProps> = ({ title, image, summary, link }) => {
   return (
     <div className="row mb-2">
-      <div>
-        <a href={link}>{title}</a>
-      </div>
+      <div>{link}</div>
       <h2><a href={link} className="text-secondary">{title}</a></h2>
       <div dangerouslySetInnerHTML={{ __html: summary }} />
     </div>

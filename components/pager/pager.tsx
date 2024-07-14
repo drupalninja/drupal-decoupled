@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pager.scss';
 
 interface PagerProps {
   headingId: string;

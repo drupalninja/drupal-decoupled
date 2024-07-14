@@ -1,5 +1,6 @@
 import React from 'react';
 import { Attributes } from 'react';
+import './Menu.scss';
 
 interface MenuItemProps {
   url: string;

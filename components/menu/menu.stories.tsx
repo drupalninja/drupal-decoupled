@@ -1,49 +1,49 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import type { Meta, StoryObj } from '@storybook/react';
 import Menu from './Menu';
 
-export default {
+const meta: Meta<typeof Menu> = {
   title: 'Navigation/Menu',
   component: Menu,
   argTypes: {
     menuItems: {
       description: 'Define the links',
-      control: { type: 'array' },
+      control: 'object',
     },
     attributes: {
       description: 'Define the attributes',
-      control: { type: 'object' },
+      control: 'object',
     },
     modifier: {
       description: 'Define the modifier',
-      control: { type: 'text' },
+      control: 'text',
     },
     itemModifier: {
       description: 'Define the list item modifier',
-      control: { type: 'text' },
+      control: 'text',
     },
   },
-} as ComponentMeta<typeof Menu>;
+};
 
-const Template: ComponentStory<typeof Menu> = (args) => <Menu {...args} />;
+export default meta;
+type Story = StoryObj<typeof Menu>;
 
-export const Menu_ = Template.bind({});
-Menu_.args = {
-  menuItems: [
-    {
-      url: '#',
-      title: 'Link 1',
-    },
-    {
-      url: '#',
-      title: 'Link 2',
-    },
-    {
-      url: '#',
-      title: 'Link 3',
-    },
-  ],
-  modifier: '',
-  itemModifier: '',
+export const Default: Story = {
+  args: {
+    menuItems: [
+      {
+        url: '#',
+        title: 'Link 1',
+      },
+      {
+        url: '#',
+        title: 'Link 2',
+      },
+      {
+        url: '#',
+        title: 'Link 3',
+      },
+    ],
+    modifier: '',
+    itemModifier: '',
+  },
 };

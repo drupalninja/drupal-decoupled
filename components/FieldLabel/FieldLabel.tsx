@@ -1,4 +1,5 @@
 import React from 'react';
+import './FieldLabel.scss';
 
 export interface FieldLabelProps {
   label: string;

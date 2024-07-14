@@ -1,4 +1,5 @@
 import React from 'react';
+import './Dropdown.scss';
 
 interface DropdownProps {
   options: { value: string; label: string }[];

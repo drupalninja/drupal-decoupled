@@ -1,24 +1,27 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import FieldLabel, { FieldLabelProps } from './FieldLabel';
 
-export default {
+const meta: Meta<typeof FieldLabel> = {
   title: 'Data Entry/Field Label',
   component: FieldLabel,
-} as ComponentMeta<typeof FieldLabel>;
-
-const Template: ComponentStory<typeof FieldLabel> = (args: any) => <FieldLabel {...args} />;
-
-export const FieldLabelValid = Template.bind({});
-FieldLabelValid.args = {
-  label: 'Valid input',
-  value: 'test@example.com',
 };
 
-export const FieldLabelInvalid = Template.bind({});
-FieldLabelInvalid.args = {
-  label: 'Invalid input',
-  isInvalid: true,
-  value: 'invalid@example',
+export default meta;
+type Story = StoryObj<typeof FieldLabel>;
+
+export const Default: Story = {
+  args: {
+    label: 'Valid input',
+    value: 'test@example.com',
+  },
+};
+
+export const FieldLabelInvalid: Story = {
+  args: {
+    label: 'Invalid input',
+    isInvalid: true,
+    value: 'invalid@example',
+  },
 };

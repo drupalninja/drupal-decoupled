@@ -1,4 +1,5 @@
 import React from 'react';
+import './Tabs.scss';
 
 interface TabItem {
   title: string;

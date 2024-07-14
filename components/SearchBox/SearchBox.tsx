@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchBox.scss';
 
 export const SearchBox: React.FC = () => {
   return (
