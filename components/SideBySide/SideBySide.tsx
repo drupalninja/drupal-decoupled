@@ -1,5 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import Button from '../Button/Button';
+import Badge from '../Badge/Badge';
 import './SideBySide.scss';
 
 interface SideBySideProps {
@@ -33,16 +35,16 @@ const SideBySide: React.FC<SideBySideProps> = ({
           <div className="shadow rounded">{media}</div>
         </div>
         <div className="col-lg-6 col-xxl-5 d-flex flex-column gap-3">
-          {eyebrow && (
-            <div className="badge text-bg-secondary text-uppercase">{eyebrow}</div>
-          )}
+          {eyebrow && <Badge tag={eyebrow} modifier="text-bg-secondary text-uppercase" />}
           <h2 className="mb-2">{title}</h2>
           {body && <div>{body}</div>}
           {button && (
-            <a href={button.url} className={classNames('btn', button.modifier)}>
-              {button.text}
-              {button.icon && <span className="material-icons">{button.icon}</span>}
-            </a>
+            <Button
+              url={button.url}
+              text={button.text}
+              icon={button.icon}
+              modifier={button.modifier}
+            />
           )}
         </div>
       </div>
