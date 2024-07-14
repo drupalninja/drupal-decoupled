@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+import './ColorToggle.scss';
 
 const ColorToggle: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);

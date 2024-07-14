@@ -1,23 +1,23 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import Shadow from './Shadow';
 
-export default {
+const meta: Meta<typeof Shadow> = {
   title: 'General/Shadow',
   component: Shadow,
-} as ComponentMeta<typeof Shadow>;
+};
 
-const Template: ComponentStory<typeof Shadow> = (args: any) => <Shadow {...args} />;
+export default meta;
+type Story = StoryObj<typeof Shadow>;
 
-export const NoShadow = Template.bind({});
-NoShadow.args = { variant: 'none' };
+export const Default: Story = {
+  args: { variant: 'sm' }
+};
 
-export const SmallShadow = Template.bind({});
-SmallShadow.args = { variant: 'sm' };
+export const RegularShadow: Story = {
+  args: { variant: 'regular' }
+};
 
-export const RegularShadow = Template.bind({});
-RegularShadow.args = { variant: 'regular' };
-
-export const LargeShadow = Template.bind({});
-LargeShadow.args = { variant: 'lg' };
+export const LargeShadow: Story = {
+  args: { variant: 'lg' }
+};

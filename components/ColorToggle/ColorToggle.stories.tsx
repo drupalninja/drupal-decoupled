@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import ColorToggle from './ColorToggle';
 
 const meta: Meta<typeof ColorToggle> = {

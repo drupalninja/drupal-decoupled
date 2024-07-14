@@ -1,8 +1,7 @@
-import React from 'react';
-import { composeStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import SiteFooter from './SiteFooter';
 
-export default {
+const meta: Meta<typeof SiteFooter> = {
   title: 'General/Site Footer',
   component: SiteFooter,
   argTypes: {
@@ -25,25 +24,27 @@ export default {
   },
 };
 
-const Template = composeStory(SiteFooter, (args: SiteFooterProps) => <SiteFooter {...args} /> as React.ReactElement);
+export default meta;
+type Story = StoryObj<typeof SiteFooter>;
 
-export const SiteFooterStory = Template.bind({});
-SiteFooterStory.args = {
-  siteLogo: './images/logo.svg',
-  modifier: '',
-  linkItemModifier: 'fs-5 text-white',
-  links: [
-    {
-      title: 'Privacy Policy',
-      url: '#',
-    },
-    {
-      title: 'Terms of Use',
-      url: '#',
-    },
-    {
-      title: 'Contact Us',
-      url: '#',
-    },
-  ],
+export const Default: Story = {
+  args: {
+    siteLogo: './images/logo.svg',
+    modifier: '',
+    linkItemModifier: 'fs-5 text-white',
+    links: [
+      {
+        title: 'Privacy Policy',
+        url: '#',
+      },
+      {
+        title: 'Terms of Use',
+        url: '#',
+      },
+      {
+        title: 'Contact Us',
+        url: '#',
+      },
+    ],
+  },
 };

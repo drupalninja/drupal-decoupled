@@ -22,7 +22,7 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
       <div className="container">
         <div className="row d-lg-flex flex-wrap justify-content-lg-between align-items-center">
           <div className="col-lg-3 footer-logo mb-2">
-            <Image src={siteLogo} alt="Site Logo" className="footer-logo" />
+            <Image src={siteLogo} width={312} height={96} alt="Site Logo" className="footer-logo w-100" />
           </div>
           <div className="col-lg-8 text-right justify-lg-content-end">
             <div className="mb-2">
@@ -30,7 +30,7 @@ const SiteFooter: React.FC<SiteFooterProps> = ({
                 <ul className="nav">
                   {links.map((link, index) => (
                     <li key={index} className={`nav-item ${linkItemModifier}`}>
-                      <a href={link.url} className="nav-link">
+                      <a href={link.url} className="nav-link text-decoration-none fs-5 text-white">
                         {link.title}
                       </a>
                     </li>

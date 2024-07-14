@@ -9,7 +9,7 @@ interface ImageProps {
 
 const CustomImage: React.FC<ImageProps> = ({ src, alt }) => {
   return (
-    <Image src={src} alt={alt} className="img-fluid rounded" />
+    <Image src={src} alt={alt} width={500} height={300} className="img-fluid rounded" />
   );
 };
 

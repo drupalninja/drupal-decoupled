@@ -1,12 +1,12 @@
 import React from 'react';
+import './Shadow.scss';
 
 interface ShadowProps {
-  variant?: 'none' | 'sm' | 'regular' | 'lg';
+  variant?: 'sm' | 'regular' | 'lg';
 }
 
 const Shadow: React.FC<ShadowProps> = ({ variant = 'regular' }) => {
   const shadowClasses = {
-    none: 'shadow-none',
     sm: 'shadow-sm',
     regular: 'shadow',
     lg: 'shadow-lg',
