@@ -24,12 +24,12 @@ export default function CoverImage({
 
   const imageFragment = readFragment(
     ImageFragment,
-    mediaImageFragment.mediaImage
+    mediaImageFragment.image
   );
 
   const Image = (
     <img
-      src={imageFragment.url}
+      src={imageFragment?.url}
       alt={`Teaser for ${title}`}
       width={width}
       height={height}

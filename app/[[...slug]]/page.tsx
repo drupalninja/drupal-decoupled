@@ -1,7 +1,9 @@
 import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
+import NodeLayoutComponent from "@/components/node/NodeLayout";
 import {
   NodeArticleFragment,
+  NodeLayoutFragment,
   NodePageFragment,
 } from "@/graphql/fragments/node";
 import { graphql } from "@/graphql/gql.tada";
@@ -43,12 +45,13 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
               }
               ...NodePageFragment
               ...NodeArticleFragment
+              ...NodeLayoutFragment
             }
           }
         }
       }
     `,
-    [NodePageFragment, NodeArticleFragment]
+    [NodePageFragment, NodeArticleFragment, NodeLayoutFragment]
   );
 
   const { data, error } = await client.query(nodeRouteQuery, {
@@ -91,6 +94,12 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       {type === "NodeArticle" && (
         <NodeArticleComponent
           node={entity as FragmentOf<typeof NodeArticleFragment>}
+          environment={environment}
+        />
+      )}
+      {type === "NodeLayout" && (
+        <NodeLayoutComponent
+          node={entity as FragmentOf<typeof NodeLayoutFragment>}
           environment={environment}
         />
       )}

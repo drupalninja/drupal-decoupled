@@ -13,7 +13,7 @@ export const ImageFragment = graphql(`
 export const MediaImageFragment = graphql(`
   fragment MediaImageFragment on MediaImage {
     id
-    mediaImage {
+    image {
       ...ImageFragment
     }
   }

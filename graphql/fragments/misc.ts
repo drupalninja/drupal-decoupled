@@ -15,3 +15,10 @@ export const TextFragment = graphql(`
     processed
   }
 `);
+
+export const TextSummaryFragment = graphql(`fragment TextSummaryFragment on TextSummary {
+  value
+  processed
+  format
+  summary
+}`);

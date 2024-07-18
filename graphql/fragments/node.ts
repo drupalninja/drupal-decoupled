@@ -2,6 +2,7 @@ import { graphql } from "@/graphql/gql.tada";
 
 import { MediaImageFragment } from "@/graphql/fragments/media";
 import { UserFragment } from "@/graphql/fragments/user";
+import { TextFragment } from "@/graphql/fragments/misc";
 import { MetatagFragment } from "./metatag";
 import {
   ParagraphUnionFragment,
@@ -23,11 +24,33 @@ export const NodeArticleFragment = graphql(`
     title
     summary
     path
+    lead {
+      ...TextFragment
+    }
     metatag {
       ...MetatagFragment
     }
+    media {
+      ...MediaImageFragment
+    }
   }
-`, [MetatagFragment])
+`, [MetatagFragment, MediaImageFragment, TextFragment])
+
+export const NodeLayoutFragment = graphql(`
+  fragment NodeLayoutFragment on NodeLayout {
+    __typename
+    id
+    title
+    summary
+    path
+    metatag {
+      ...MetatagFragment
+    }
+    content {
+      ...ParagraphUnionFragment
+    }
+  }
+`, [MetatagFragment, MediaImageFragment, TextFragment, ParagraphUnionFragment])
 
 export const NodeArticleTeaserFragment = graphql(`
   fragment NodeArticleTeaserFragment on NodeArticle {

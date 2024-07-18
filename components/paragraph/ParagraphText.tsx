@@ -1,5 +1,5 @@
 import { FragmentOf, readFragment } from "gql.tada";
-import { TextFragment } from "@/graphql/fragments/misc";
+import { TextSummaryFragment } from "@/graphql/fragments/misc";
 import { ParagraphTextFragment } from "@/graphql/fragments/paragraph";
 
 interface ParagraphTextProps {
@@ -7,8 +7,8 @@ interface ParagraphTextProps {
 }
 
 export default function ParagraphText({ paragraph } : ParagraphTextProps) {
-  const { title, textRich } = readFragment(ParagraphTextFragment, paragraph);
-  const textFragment = readFragment(TextFragment, textRich)
+  const { title, body } = readFragment(ParagraphTextFragment, paragraph);
+  const textFragment = readFragment(TextSummaryFragment, body)
   
   return (
     <div className="py-16 bg-white">

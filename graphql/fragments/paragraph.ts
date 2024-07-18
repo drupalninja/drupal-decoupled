@@ -1,5 +1,5 @@
 import { graphql } from "@/graphql/gql.tada";
-import { TextFragment } from "./misc";
+import { TextSummaryFragment } from "./misc";
 // @todo fix use of NodeArticleTeaserFragment
 // import { NodeArticleTeaserFragment  } from "./node";
 
@@ -8,11 +8,11 @@ import { TextFragment } from "./misc";
     __typename
     id
     title
-    textRich {
-      ...TextFragment
+    body {
+      ...TextSummaryFragment
     }
   }
- `, [TextFragment])
+ `, [TextSummaryFragment])
 
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {
