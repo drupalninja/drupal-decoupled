@@ -1,11 +1,9 @@
 import NodeArticleComponent from "@/components/node/NodeArticle";
 import NodePageComponent from "@/components/node/NodePage";
-import TermTagsComponent from "@/components/taxonomy/TermTags";
 import {
   NodeArticleFragment,
   NodePageFragment,
 } from "@/graphql/fragments/node";
-import { TermTagsFragment } from "@/graphql/fragments/terms";
 import { graphql } from "@/graphql/gql.tada";
 import { getClient } from "@/utils/client.server";
 import { calculatePath } from "@/utils/routes";
@@ -45,13 +43,12 @@ async function getDrupalData({ params }: { params: { slug: string[] } }) {
               }
               ...NodePageFragment
               ...NodeArticleFragment
-              ...TermTagsFragment
             }
           }
         }
       }
     `,
-    [NodePageFragment, NodeArticleFragment, TermTagsFragment]
+    [NodePageFragment, NodeArticleFragment]
   );
 
   const { data, error } = await client.query(nodeRouteQuery, {
@@ -95,11 +92,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         <NodeArticleComponent
           node={entity as FragmentOf<typeof NodeArticleFragment>}
           environment={environment}
-        />
-      )}
-      {type === "TermTags" && (
-        <TermTagsComponent
-          term={entity as FragmentOf<typeof TermTagsFragment>}
         />
       )}
     </Fragment>

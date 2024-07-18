@@ -12,23 +12,9 @@ export const NodePageFragment = graphql(`
     __typename
     id
     title
-    showTitle
     summary
-    image {
-      ...MediaImageFragment
-    }
-    metatag {
-      ...MetatagFragment
-    }
-    components {
-      ...ParagraphUnionFragment
-    }
   }
-`, [
-  MediaImageFragment,
-  MetatagFragment,
-  ParagraphUnionFragment,
-])
+`)
 
 export const NodeArticleFragment = graphql(`
   fragment NodeArticleFragment on NodeArticle {
@@ -37,25 +23,11 @@ export const NodeArticleFragment = graphql(`
     title
     summary
     path
-    image {
-      ...MediaImageFragment
-    }
-    author {
-      ...UserFragment
-    }
     metatag {
       ...MetatagFragment
     }
-    components {
-      ...ParagraphUnionFragment
-    }
   }
-`, [
-  MediaImageFragment,
-  UserFragment,
-  MetatagFragment,
-  ParagraphUnionFragment,
-])
+`, [MetatagFragment])
 
 export const NodeArticleTeaserFragment = graphql(`
   fragment NodeArticleTeaserFragment on NodeArticle {
@@ -64,14 +36,5 @@ export const NodeArticleTeaserFragment = graphql(`
     title
     summary
     path
-    image {
-      ...MediaImageFragment
-    }
-    author {
-      ...UserFragment
-    }
   }
-`, [
-  MediaImageFragment,
-  UserFragment,
-])
+`)
