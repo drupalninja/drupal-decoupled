@@ -22,3 +22,16 @@ export const TextSummaryFragment = graphql(`fragment TextSummaryFragment on Text
   format
   summary
 }`);
+
+export const DateTimeFragment = graphql(`fragment DateTimeFragment on DateTime {
+  timestamp
+  timezone
+  offset
+  time
+}`)
+
+export const LanguageFragment = graphql(`fragment LanguageFragment on Language {
+  id
+  name
+  direction
+}`)

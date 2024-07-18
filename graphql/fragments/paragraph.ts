@@ -1,18 +1,32 @@
 import { graphql } from "@/graphql/gql.tada";
-import { TextSummaryFragment } from "./misc";
+import { TextSummaryFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "./misc";
 // @todo fix use of NodeArticleTeaserFragment
 // import { NodeArticleTeaserFragment  } from "./node";
 
- export const ParagraphTextFragment = graphql(`
-  fragment ParagraphTextFragment on ParagraphText {
-    __typename
-    id
-    title
-    body {
-      ...TextSummaryFragment
-    }
+export const ParagraphTextFragment = graphql(`fragment ParagraphTextFragment on ParagraphText {
+  id
+  body {
+    ...TextSummaryFragment
   }
- `, [TextSummaryFragment])
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  status
+  title
+}`,
+  [
+    TextSummaryFragment,
+    DateTimeFragment,
+    LanguageFragment,
+    LinkFragment,
+  ]
+)
 
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {

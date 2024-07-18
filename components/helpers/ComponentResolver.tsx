@@ -1,6 +1,6 @@
 import { FragmentOf, readFragment } from "gql.tada";
 
-import ParagraphText from "@/components/paragraph/ParagraphText";
+import ParagraphText from "@/components/ParagraphText/ParagraphText";
 
 import {
   ParagraphTextFragment,

@@ -1,4 +1,5 @@
 import React from 'react';
+import './TextBlock.scss';
 
 interface TextBlockProps {
   heading?: {
