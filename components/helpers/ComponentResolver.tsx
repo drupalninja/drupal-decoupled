@@ -1,9 +1,11 @@
 import { FragmentOf, readFragment } from "gql.tada";
 
 import ParagraphText from "@/components/ParagraphText/ParagraphText";
+import ParagraphMedia from "../paragraph/ParagraphMedia";
 
 import {
   ParagraphTextFragment,
+  ParagraphMediaFragment,
   ParagraphUnionFragment,
 } from "@/graphql/fragments/paragraph"
 
@@ -11,7 +13,8 @@ import VisualEditorComponentContainer from "@/components/helpers/VisualEditorCom
 
 type ComponentType = Array<JSX.Element>
 type ParagraphFragmentType =
-  FragmentOf<typeof ParagraphTextFragment>;
+  FragmentOf<typeof ParagraphTextFragment> |
+  FragmentOf<typeof ParagraphMediaFragment>;
 
 interface ResolveProps {
   data: FragmentOf<typeof ParagraphUnionFragment>[] | null;
@@ -21,6 +24,9 @@ interface ResolveProps {
 const calculateComponent = function (type: string, paragraph: ParagraphFragmentType): JSX.Element {
   if (type === 'ParagraphText') {
     return <ParagraphText paragraph={paragraph as FragmentOf<typeof ParagraphTextFragment>} />;
+  }
+  if (type === 'ParagraphMedia') {
+    return <ParagraphMedia paragraph={paragraph as FragmentOf<typeof ParagraphMediaFragment>} />;
   }
   return <pre>{JSON.stringify(paragraph, null, 2)}</pre>;
 }
