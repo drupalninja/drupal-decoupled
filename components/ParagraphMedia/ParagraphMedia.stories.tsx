@@ -26,6 +26,6 @@ export const Default: Story = {
           height: 600,
         },
       },
-    }
+    } as any
   }
 };

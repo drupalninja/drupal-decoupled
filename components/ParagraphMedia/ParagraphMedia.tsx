@@ -1,6 +1,7 @@
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphMediaFragment } from '@/graphql/fragments/paragraph';
 import { getImage } from '../helpers/Utilities';
+import './ParagraphMedia.scss';
 
 interface ParagraphMediaProps {
   paragraph: FragmentOf<typeof ParagraphMediaFragment>

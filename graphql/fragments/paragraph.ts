@@ -1,8 +1,40 @@
 import { graphql } from "@/graphql/gql.tada";
-import { TextSummaryFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "./misc";
+import { TextSummaryFragment, TextFragment, DateTimeFragment, LanguageFragment, LinkFragment } from "./misc";
 import { MediaUnionFragment } from "./media";
 // @todo fix use of NodeArticleTeaserFragment
 // import { NodeArticleTeaserFragment  } from "./node";
+
+export const ParagraphHeroFragment = graphql(`fragment ParagraphHeroFragment on ParagraphHero {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  heading {
+    ...TextFragment
+  }
+  heroLayout
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  requiredMedia: media {
+    ...MediaUnionFragment
+  }
+  status
+  summary {
+    ...TextFragment
+  }
+}`,
+  [
+    DateTimeFragment,
+    TextFragment,
+    LanguageFragment,
+    LinkFragment,
+    MediaUnionFragment,
+  ]
+)
 
 export const ParagraphMediaFragment = graphql(`fragment ParagraphMediaFragment on ParagraphMedia {
   id
@@ -85,9 +117,11 @@ export const ParagraphUnionFragment = graphql(`
     ...ParagraphTextFragment
     ...ParagraphMediaFragment
     ...ParagraphQuoteFragment
+    ...ParagraphHeroFragment
   }
 `, [
   ParagraphTextFragment,
   ParagraphMediaFragment,
   ParagraphQuoteFragment,
+  ParagraphHeroFragment,
 ])

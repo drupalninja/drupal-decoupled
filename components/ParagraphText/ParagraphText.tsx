@@ -20,7 +20,7 @@ export default function ParagraphText({ paragraph, modifier } : ParagraphTextPro
           <h2 className={`mb-2 display-3`}>{title}</h2>
         )}
         {body && (
-          <div dangerouslySetInnerHTML={{ __html: textSummaryFragment.value ? textSummaryFragment.value : '' }}></div>
+          <div dangerouslySetInnerHTML={{ __html: textSummaryFragment?.value ?? '' }}></div>
         )}
         {linkFragment?.url && (
           <div className="mt-3">
