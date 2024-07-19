@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import ParagraphMedia from './ParagraphMedia';
-import { FragmentOf } from 'gql.tada';
-import { ParagraphMediaFragment } from '@/graphql/fragments/paragraph';
 
 const meta: Meta<typeof ParagraphMedia> = {
   title: 'Editorial/Paragraph Media',
   component: ParagraphMedia,
   argTypes: {
-    paragraph: { control: 'object' },
+    paragraph: { 
+      description: 'ParagraphMedia fragment data',
+      control: 'object' 
+    },
   },
 };
 
@@ -20,8 +21,11 @@ export const Default: Story = {
       media: {
         image: {
           url: './images/card.webp',
+          alt: 'Card',
+          width: 800,
+          height: 600,
         },
       },
-    } as FragmentOf<typeof ParagraphMediaFragment>,
+    }
   }
 };

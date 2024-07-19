@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { FragmentOf, readFragment } from "gql.tada";
 import { NodeLayoutFragment } from "@/graphql/fragments/node";
-import CoverImage from "@/components/CoverImage";
 import { resolve } from "@/components/helpers/ComponentResolver";
 
 type NodeLayoutComponentProps = {

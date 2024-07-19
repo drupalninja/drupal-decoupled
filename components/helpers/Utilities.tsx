@@ -1,4 +1,12 @@
+import Image from 'next/image';
 
-export const getImageUrl = (media: any) => {
-  return media?.image?.url;
+export const getImage = (media: any) => {
+  return (
+    <Image 
+      src={media?.image?.url} 
+      alt={media?.image?.alt} 
+      width={media?.image?.width}
+      height={media?.image?.height}
+    />
+  )
 };
