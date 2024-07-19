@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import 'material-symbols';
 import "../styles/bootstrap.scss";
 import "./preview.css";
 import Container from "@/components/Container";

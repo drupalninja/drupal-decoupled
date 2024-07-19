@@ -1,5 +1,6 @@
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphMediaFragment } from '@/graphql/fragments/paragraph';
+import { getImageUrl } from '../helpers/Utilities';
 
 interface ParagraphMediaProps {
   paragraph: FragmentOf<typeof ParagraphMediaFragment>
@@ -7,15 +8,15 @@ interface ParagraphMediaProps {
 
 export default function ParagraphMedia({ paragraph }: ParagraphMediaProps) {
   const { media } = readFragment(ParagraphMediaFragment, paragraph);
-  if (!media?.image) {
-    return null;
-  }
+  const imageUrl = getImageUrl(media);
 
   return (
     <div className="flex items-center justify-center">
-      <img
-        src={media.image.url}
-      />
+      {imageUrl && (
+        <img
+          src={imageUrl}
+        />
+      )}
     </div>
   );
 }

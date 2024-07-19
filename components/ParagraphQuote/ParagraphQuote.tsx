@@ -1,5 +1,6 @@
 import { FragmentOf, readFragment } from "gql.tada";
 import { ParagraphQuoteFragment } from "@/graphql/fragments/paragraph";
+import { getImageUrl } from "../helpers/Utilities";
 import './ParagraphQuote.scss';
 
 interface ParagraphQuoteProps {
@@ -7,17 +8,19 @@ interface ParagraphQuoteProps {
   modifier?: string
 }
 
-export default function ParagraphQuote({ paragraph, modifier } : ParagraphQuoteProps) {
+export default function ParagraphQuote({ paragraph, modifier }: ParagraphQuoteProps) {
   const { author, jobTitle, logo, quote, thumb } = readFragment(ParagraphQuoteFragment, paragraph);
+  const logoUrl = getImageUrl(logo);
+  const thumbUrl = getImageUrl(thumb);
   
   return (
     <div className={`text-center d-flex justify-content-center ${modifier}`}>
       <div className="col-lg-10 col-xxxl-6">
         <div className="row">
-          {logo && (
+          {logoUrl && (
             <div className="quote-logo col-lg-3 mx-auto mb-2">
               <img
-                src={logo.image.url}
+                src={logoUrl}
               />
             </div>
           )}
@@ -29,10 +32,10 @@ export default function ParagraphQuote({ paragraph, modifier } : ParagraphQuoteP
           </blockquote>
         </div>
         <div className="d-flex justify-content-center align-items-center">
-          {thumb && (
+          {thumbUrl && (
             <div className="quote-image me-3">
               <img
-                src={thumb.image.url}
+                src={thumbUrl}
               />
             </div>
           )}

@@ -9,8 +9,11 @@
 }
 
 .quote-image {
-  max-width: 120px;
-  height: auto;
+
+  img {
+    max-width: 120px;
+    height: auto;
+  }
 }
 
 blockquote {
