@@ -2,7 +2,7 @@ import ParagraphText from './ParagraphText';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ParagraphText> = {
-  title: 'Editorial/Text Paragraph',
+  title: 'Editorial/Paragraph Text',
   component: ParagraphText,
   argTypes: {
     paragraph: {

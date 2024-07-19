@@ -50,6 +50,32 @@ export const ParagraphTextFragment = graphql(`fragment ParagraphTextFragment on 
   ]
 )
 
+export const ParagraphQuoteFragment = graphql(`fragment ParagraphQuoteFragment on ParagraphQuote {
+  id
+  author
+  created {
+    ...DateTimeFragment
+  }
+  jobTitle
+  langcode {
+    ...LanguageFragment
+  }
+  logo {
+    ...MediaUnionFragment
+  }
+  quote
+  status
+  thumb {
+    ...MediaUnionFragment
+  }
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    MediaUnionFragment,
+  ]
+)
+
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {
     ... on ParagraphInterface {
@@ -58,8 +84,10 @@ export const ParagraphUnionFragment = graphql(`
     }
     ...ParagraphTextFragment
     ...ParagraphMediaFragment
+    ...ParagraphQuoteFragment
   }
 `, [
   ParagraphTextFragment,
-  ParagraphMediaFragment,  
+  ParagraphMediaFragment,
+  ParagraphQuoteFragment,
 ])
