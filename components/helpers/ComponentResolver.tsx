@@ -4,12 +4,14 @@ import ParagraphText from "@/components/ParagraphText/ParagraphText";
 import ParagraphMedia from "@/components/ParagraphMedia/ParagraphMedia";
 import ParagraphQuote from "@/components/ParagraphQuote/ParagraphQuote";
 import ParagraphHero from "@/components/ParagraphHero/ParagraphHero";
+import ParagraphAccordion from "@/components/ParagraphAccordion/ParagraphAccordion";
 
 import {
   ParagraphTextFragment,
   ParagraphMediaFragment,
   ParagraphQuoteFragment,
   ParagraphHeroFragment,
+  ParagraphAccordionFragment,
   ParagraphUnionFragment,
 } from "@/graphql/fragments/paragraph"
 
@@ -20,7 +22,9 @@ type ParagraphFragmentType =
   FragmentOf<typeof ParagraphTextFragment> |
   FragmentOf<typeof ParagraphMediaFragment> |
   FragmentOf<typeof ParagraphQuoteFragment> |
-  FragmentOf<typeof ParagraphHeroFragment>;
+  FragmentOf<typeof ParagraphHeroFragment> |
+  FragmentOf<typeof ParagraphAccordionFragment>;
+
 interface ResolveProps {
   data: FragmentOf<typeof ParagraphUnionFragment>[] | null;
   environment: string;
@@ -38,6 +42,9 @@ const calculateComponent = function (type: string, paragraph: ParagraphFragmentT
   }
   if (type === 'ParagraphHero') {
     return <ParagraphHero paragraph={paragraph as FragmentOf<typeof ParagraphHeroFragment>} />;
+  }
+  if (type === 'ParagraphAccordion') {
+    return <ParagraphAccordion paragraph={paragraph as FragmentOf<typeof ParagraphAccordionFragment>} />;
   }
   return <pre>{JSON.stringify(paragraph, null, 2)}</pre>;
 }

@@ -108,6 +108,52 @@ export const ParagraphQuoteFragment = graphql(`fragment ParagraphQuoteFragment o
   ]
 )
 
+export const ParagraphAccordionItemFragment = graphql(`fragment ParagraphAccordionItemFragment on ParagraphAccordionItem {
+  id
+  body {
+    ...TextSummaryFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  status
+  title
+}`,
+  [
+    TextSummaryFragment,
+    DateTimeFragment,
+    LanguageFragment,
+    LinkFragment,
+  ]
+)
+
+export const ParagraphAccordionFragment = graphql(`fragment ParagraphAccordionFragment on ParagraphAccordion {
+  id
+  accordionItem {
+    ...ParagraphAccordionItemFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  status
+  title
+}`,
+  [
+    ParagraphAccordionItemFragment,
+    DateTimeFragment,
+    LanguageFragment,
+  ]
+)
+
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {
     ... on ParagraphInterface {
@@ -118,10 +164,12 @@ export const ParagraphUnionFragment = graphql(`
     ...ParagraphMediaFragment
     ...ParagraphQuoteFragment
     ...ParagraphHeroFragment
+    ...ParagraphAccordionFragment
   }
 `, [
   ParagraphTextFragment,
   ParagraphMediaFragment,
   ParagraphQuoteFragment,
   ParagraphHeroFragment,
+  ParagraphAccordionFragment,
 ])
