@@ -2,7 +2,9 @@
 
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphAccordionFragment } from '@/graphql/fragments/paragraph';
+import { LinkFragment } from '@/graphql/fragments/misc';
 import { Accordion } from 'react-bootstrap';
+import Button from '@/components/Button/Button';
 import './ParagraphAccordion.scss';
 
 interface ParagraphAccordionProps {
@@ -24,7 +26,16 @@ export default function ParagraphAccordion({ paragraph, modifier }: ParagraphAcc
               </Accordion.Button>
             </h2>
             <Accordion.Collapse eventKey={`accordion-${index}`}>
-              <div className="accordion-body" dangerouslySetInnerHTML={{ __html: item?.body?.value ?? '' }} />
+              <div className="accordion-body">
+                <div dangerouslySetInnerHTML={{ __html: item?.body.value }} />
+                {item.link && (
+                  <Button
+                    url={item.link?.url}
+                    text={item.link?.title}
+                    modifier="btn-primary"
+                  />
+                )}
+              </div>
             </Accordion.Collapse>
           </Accordion.Item>
         ))}
