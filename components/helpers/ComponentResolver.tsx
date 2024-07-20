@@ -15,8 +15,6 @@ import {
   ParagraphUnionFragment,
 } from "@/graphql/fragments/paragraph"
 
-import VisualEditorComponentContainer from "@/components/helpers/VisualEditorComponentContainer";
-
 type ComponentType = Array<JSX.Element>
 type ParagraphFragmentType =
   FragmentOf<typeof ParagraphTextFragment> |
@@ -65,20 +63,6 @@ export const resolve = ({data = [], environment = 'preview'}: ResolveProps): Com
     }
 
     const ParagraphComponent = calculateComponent(type, paragraph);
-
-    if (environment === 'preview') {
-      components.push(
-        <VisualEditorComponentContainer
-          action='edit'
-          storage='paragraph'
-          uuid={paragraph.id}
-        >
-          {ParagraphComponent}
-        </VisualEditorComponentContainer>
-      );
-
-      return;
-    }
 
     components.push(ParagraphComponent)
   });

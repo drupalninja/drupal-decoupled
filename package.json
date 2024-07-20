@@ -17,7 +17,6 @@
     "bootstrap": "^5.3.3",
     "drupal-auth-client": "^0.4",
     "drupal-decoupled": "^0.1.1",
-    "drupal-visual-editor": "^0.1.0",
     "gql.tada": "^1.5.7",
     "material-symbols": "^0.21.2",
     "next": "14.2.2",
