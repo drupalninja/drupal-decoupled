@@ -154,6 +154,53 @@ export const ParagraphAccordionFragment = graphql(`fragment ParagraphAccordionFr
   ]
 )
 
+export const ParagraphCardFragment = graphql(`fragment ParagraphCardFragment on ParagraphCard {
+  id
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  link {
+    ...LinkFragment
+  }
+  media {
+    ...MediaUnionFragment
+  }
+  status
+  summary
+  title
+}`,
+  [
+    DateTimeFragment,
+    LanguageFragment,
+    LinkFragment,
+    MediaUnionFragment,
+  ]
+)
+
+export const ParagraphCardGroupFragment = graphql(`fragment ParagraphCardGroupFragment on ParagraphCardGroup {
+  id
+  card {
+    ...ParagraphCardFragment
+  }
+  created {
+    ...DateTimeFragment
+  }
+  langcode {
+    ...LanguageFragment
+  }
+  status
+  title
+}`,
+  [
+    ParagraphCardFragment,
+    DateTimeFragment,
+    LanguageFragment,
+  ]
+)
+
 export const ParagraphUnionFragment = graphql(`
   fragment ParagraphUnionFragment on ParagraphUnion {
     ... on ParagraphInterface {
@@ -165,6 +212,7 @@ export const ParagraphUnionFragment = graphql(`
     ...ParagraphQuoteFragment
     ...ParagraphHeroFragment
     ...ParagraphAccordionFragment
+    ...ParagraphCardGroupFragment
   }
 `, [
   ParagraphTextFragment,
@@ -172,4 +220,5 @@ export const ParagraphUnionFragment = graphql(`
   ParagraphQuoteFragment,
   ParagraphHeroFragment,
   ParagraphAccordionFragment,
+  ParagraphCardGroupFragment,
 ])

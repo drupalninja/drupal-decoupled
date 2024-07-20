@@ -1,5 +1,7 @@
+'use client'
+
 import React from 'react';
-import Link from 'next/link';
+import { getImage } from '../helpers/Utilities';
 import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
 import Heading, { HeadingProps } from '../Heading/Heading';
@@ -9,7 +11,7 @@ import './Card.scss';
 export interface CardProps {
   modifier?: string;
   bodyModifier?: string;
-  media?: React.ReactNode;
+  media?: object;
   mediaLink?: string;
   heading: HeadingProps;
   layout?: string;
@@ -17,11 +19,11 @@ export interface CardProps {
   summaryText?: string;
   link?: {
     url: string;
-    text: string;
+    title: string;
   };
   link2?: {
     url: string;
-    text: string;
+    title: string;
   };
 }
 
@@ -40,13 +42,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <BootstrapCard className={`h-100 ${modifier}`}>
       {media && (
-        <React.Fragment>
-          {mediaLink ? (
-            <Link href={mediaLink}>{media}</Link>
-          ) : (
-            media
-          )}
-        </React.Fragment>
+        <>{getImage(media)}</>
       )}
       <BootstrapCard.Body className={`mt-2 ${bodyModifier}`}>
         {tags.length > 0 && (
@@ -71,7 +67,7 @@ const Card: React.FC<CardProps> = ({
               <li className="list-inline-item">
                 <Button
                   url={link.url}
-                  text={link.text}
+                  text={link.title}
                   icon="arrow_right_alt"
                   modifier="btn-primary"
                 />
@@ -81,7 +77,7 @@ const Card: React.FC<CardProps> = ({
               <li className="list-inline-item">
                 <Button
                   url={link2.url}
-                  text={link2.text}
+                  text={link2.title}
                   icon="arrow_right_alt"
                   modifier="btn-outline-primary"
                 />

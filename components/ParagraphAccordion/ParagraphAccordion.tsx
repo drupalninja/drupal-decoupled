@@ -2,7 +2,6 @@
 
 import { FragmentOf, readFragment } from 'gql.tada';
 import { ParagraphAccordionFragment } from '@/graphql/fragments/paragraph';
-import { LinkFragment } from '@/graphql/fragments/misc';
 import { Accordion } from 'react-bootstrap';
 import Button from '@/components/Button/Button';
 import './ParagraphAccordion.scss';

@@ -5,6 +5,7 @@ import ParagraphMedia from "@/components/ParagraphMedia/ParagraphMedia";
 import ParagraphQuote from "@/components/ParagraphQuote/ParagraphQuote";
 import ParagraphHero from "@/components/ParagraphHero/ParagraphHero";
 import ParagraphAccordion from "@/components/ParagraphAccordion/ParagraphAccordion";
+import ParagraphCardGroup from "@/components/ParagraphCardGroup/ParagraphCardGroup";
 
 import {
   ParagraphTextFragment,
@@ -12,16 +13,18 @@ import {
   ParagraphQuoteFragment,
   ParagraphHeroFragment,
   ParagraphAccordionFragment,
+  ParagraphCardGroupFragment,
   ParagraphUnionFragment,
-} from "@/graphql/fragments/paragraph"
+} from "@/graphql/fragments/paragraph";
 
-type ComponentType = Array<JSX.Element>
+type ComponentType = Array<JSX.Element>;
 type ParagraphFragmentType =
   FragmentOf<typeof ParagraphTextFragment> |
   FragmentOf<typeof ParagraphMediaFragment> |
   FragmentOf<typeof ParagraphQuoteFragment> |
   FragmentOf<typeof ParagraphHeroFragment> |
-  FragmentOf<typeof ParagraphAccordionFragment>;
+  FragmentOf<typeof ParagraphAccordionFragment> |
+  FragmentOf<typeof ParagraphCardGroupFragment>;
 
 interface ResolveProps {
   data: FragmentOf<typeof ParagraphUnionFragment>[] | null;
@@ -44,12 +47,15 @@ const calculateComponent = function (type: string, paragraph: ParagraphFragmentT
   if (type === 'ParagraphAccordion') {
     return <ParagraphAccordion paragraph={paragraph as FragmentOf<typeof ParagraphAccordionFragment>} />;
   }
+  if (type === 'ParagraphCardGroup') {
+    return <ParagraphCardGroup paragraph={paragraph as FragmentOf<typeof ParagraphCardGroupFragment>} />;
+  }
   return <pre>{JSON.stringify(paragraph, null, 2)}</pre>;
 }
 
 export const resolve = ({data = [], environment = 'preview'}: ResolveProps): ComponentType => {
   if (!data) {
-    return []
+    return [];
   }
 
   const paragraphUnionFragment = readFragment(ParagraphUnionFragment, data); 
@@ -64,7 +70,7 @@ export const resolve = ({data = [], environment = 'preview'}: ResolveProps): Com
 
     const ParagraphComponent = calculateComponent(type, paragraph);
 
-    components.push(ParagraphComponent)
+    components.push(ParagraphComponent);
   });
 
   return components;
